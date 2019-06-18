@@ -5,9 +5,11 @@ def read_txt(file_name, new_file_name):
     f1 = f.readlines()
     for x in f1:
         while ord(x[0]) < 65:
+            # changed this to 65
             x = x[1:]
         while ord(x[len(x)-1]) < 65:
             x = x[:len(x)-1]
+            # changed this to len(x) - 1 because - 2 was removing 2 characters at a time
         print(x)
         x = x + "\n"
         fh.writelines(x)
