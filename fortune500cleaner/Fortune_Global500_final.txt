@@ -1,71 +1,70 @@
-Walmar
-State Gri
-Sinopec Grou
-China National Petroleu
-Royal Dutch Shel
-Toyota Moto
-Volkswage
-B
-Exxon Mobi
-Berkshire Hathawa
-Appl
-Samsung Electronic
-McKesso
-Glencor
-UnitedHealth Grou
-Daimle
-CVS Healt
-Amazon.co
-EXOR Grou
-A
-WANT PREMIUM ACCESS? VISIT THE FORTUNE DATASTOR
-General Motor
-Ford Moto
-China State Construction Engineerin
-Hon Hai Precision Industr
-AmerisourceBerge
-Industrial & Commercial Bank of Chin
-AX
-Tota
-Ping An Insuranc
-Honda Moto
-China Construction Ban
-Trafigura Grou
-Chevro
-Cardinal Healt
-Costc
-SAIC Moto
-Verizo
-Allian
-Kroge
-Agricultural Bank of Chin
-General Electri
-China Life Insuranc
-Walgreens Boots Allianc
-BNP Pariba
-Japan Post Holding
-Bank of Chin
+Walmart
+State Grid
+Sinopec Group
+China National Petroleum
+Royal Dutch Shell
+Toyota Motor
+Volkswagen
+BP
+Exxon Mobil
+Berkshire Hathaway
+Apple
+Samsung Electronics
+McKesson
+Glencore
+UnitedHealth Group
+Daimler
+CVS Health
+Amazon.com
+EXOR Group
+AT&T
+General Motors
+Ford Motor
+China State Construction Engineering
+Hon Hai Precision Industry
+AmerisourceBergen
+Industrial & Commercial Bank of China
+AXA
+Total
+Ping An Insurance
+Honda Motor
+China Construction Bank
+Trafigura Group
+Chevron
+Cardinal Health
+Costco
+SAIC Motor
+Verizon
+Allianz
+Kroger
+Agricultural Bank of China
+General Electric
+China Life Insurance
+Walgreens Boots Alliance
+BNP Paribas
+Japan Post Holdings
+Bank of China
 JPMorgan Chase & Co
-Fannie Ma
-Gazpro
-Prudentia
-BMW Grou
-Alphabe
-China Mobile Communication
-Nissan Moto
-Nippon Telegraph & Telephon
-China Railway Engineering Grou
-Home Depo
-China Railway Constructio
-Assicurazioni General
+Fannie Mae
+Gazprom
+Prudential
+BMW Group
+Alphabet
+China Mobile Communications
+Nissan Motor
+Nippon Telegraph & Telephone
+China Railway Engineering Group
+Home Depot
+China Railway Construction
+Assicurazioni Generali
 Bank of America Corp
-Express Scripts Holdin
+Express Scripts Holding
 Wells Fargo
 Lukoil
 Boeing
 Dongfeng Motor
 Siemens
-Phillip
+Phillips
 Carrefour
 Nestle
 Anthem
@@ -93,7 +92,7 @@ China Communications Construction
 IBM
 Dell Technologies
 Electricite de France
-State Farm Insurance Co
+State Farm Insurance Cos
 Pacific Construction Group
 Sony
 Sinochem Group
@@ -155,7 +154,7 @@ Unilever
 Aetna
 FedEx
 Auchan Holding
-Albertsons Co
+Albertsons Cos
 Vodafone Group
 United Technologies
 Prudential Financial
@@ -218,7 +217,7 @@ State Bank of India
 Energy Transfer Equity
 ThyssenKrupp
 Kia Motors
-China Pacific Insurance (Grou
+China Pacific Insurance (Group
 MS&AD Insurance Group Holdings
 Aluminum Corp. of China
 Deutsche Bank
@@ -287,7 +286,7 @@ ACS
 Pegatron
 Volvo
 Magna International
-Shaanxi Yanchang Petroleum (Grou
+Shaanxi Yanchang Petroleum (Group
 China Huaneng Group
 GlaxoSmithKline
 Talanx
@@ -406,7 +405,7 @@ Enterprise Products Partners
 Compal Electronics
 Rajesh Exports
 Air France-KLM Group
-Travelers Co
+Travelers Cos
 Inditex
 Hewlett Packard Enterprise
 Cathay Life Insurance
@@ -492,7 +491,7 @@ Taikang Insurance Group
 U.S. Bancorp
 Boehringer Ingelheim
 Rabobank Group
-CJ Cor
+CJ Corp
 Yangquan Coal Industry Group
 Shanxi LuAn Mining Group
 Henan Energy & Chemical
