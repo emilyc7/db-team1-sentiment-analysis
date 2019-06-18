@@ -44,7 +44,7 @@ Walgreens Boots Alliance
 BNP Paribas
 Japan Post Holdings
 Bank of China
-JPMorgan Chase & Co
+JPMorgan Chase & Co.
 Fannie Mae
 Gazprom
 Prudential
@@ -57,7 +57,7 @@ China Railway Engineering Group
 Home Depot
 China Railway Construction
 Assicurazioni Generali
-Bank of America Corp
+Bank of America Corp.
 Express Scripts Holding
 Wells Fargo
 Lukoil
@@ -92,7 +92,7 @@ China Communications Construction
 IBM
 Dell Technologies
 Electricite de France
-State Farm Insurance Cos
+State Farm Insurance Cos.
 Pacific Construction Group
 Sony
 Sinochem Group
@@ -154,7 +154,7 @@ Unilever
 Aetna
 FedEx
 Auchan Holding
-Albertsons Cos
+Albertsons Cos.
 Vodafone Group
 United Technologies
 Prudential Financial
@@ -405,7 +405,7 @@ Enterprise Products Partners
 Compal Electronics
 Rajesh Exports
 Air France-KLM Group
-Travelers Cos
+Travelers Cos.
 Inditex
 Hewlett Packard Enterprise
 Cathay Life Insurance
@@ -491,7 +491,7 @@ Taikang Insurance Group
 U.S. Bancorp
 Boehringer Ingelheim
 Rabobank Group
-CJ Corp
+CJ Corp.
 Yangquan Coal Industry Group
 Shanxi LuAn Mining Group
 Henan Energy & Chemical

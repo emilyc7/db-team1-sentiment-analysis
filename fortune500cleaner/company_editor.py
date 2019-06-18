@@ -7,7 +7,7 @@ def read_txt(file_name, new_file_name):
         while ord(x[0]) < 65:
             # changed this to 65
             x = x[1:]
-        while ord(x[len(x)-1]) < 65:
+        while ord(x[len(x)-1]) < 65 and ord(x[len(x)-1]) != 46:
             x = x[:len(x)-1]
             # changed this to len(x) - 1 because - 2 was removing 2 characters at a time
         print(x)
