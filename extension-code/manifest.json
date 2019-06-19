@@ -1,0 +1,10 @@
+{
+  "name": "Stock Sentiment",
+  "version": "0.1",
+  "description": "Sentiment analyser and stock informer.",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "browser_action": {
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
