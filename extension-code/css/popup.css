@@ -1,14 +1,19 @@
+/* container is the overall structure; setting it to only
+set width so that height can be changed by elements */
 #container {
   width: 300px;
 }
+/* setting default margin to 0 to fix weird border issue */
 body {
   margin: 0px;
 }
+/* row is a typical object, like score or stock graph */
 .row {
   height: 120px;
   box-sizing: border-box;
   background-color: #fdfdfd;
 }
+/* enabled transitions and side by side design for header */
 .header {
   height: 50px;
   width: 50%;
@@ -17,27 +22,35 @@ body {
   border: none;
   border-bottom: 1px solid #e7e7e7;
   background-color: white;
+  transition: border-bottom 0.5s;
 }
 .header:hover {
   cursor: pointer;
+  border-bottom: 1px solid #c3c3c3;
 }
 .header:focus {
   outline: none;
   cursor: default;
   border-bottom: 1px solid black;
 }
-#headerText {
+/* actual text in the headers */
+.header-text {
   text-align: center;
   padding: 10px;
   font-size: 22px;
   color: #0018a8;
 }
+/* text in the score */
 #score {
   text-align: center;
   padding: 10px;
   font-size: 72px;
   color: #0018a8;
 }
+#score:hover {
+  cursor: default;
+}
+/* setting default font to century gothic */
 * {
   font-family: Century Gothic;
 }
