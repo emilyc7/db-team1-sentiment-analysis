@@ -7,18 +7,29 @@ body {
 .row {
   height: 120px;
   box-sizing: border-box;
-  background-color: #f7fcff;
+  background-color: #fdfdfd;
 }
 .header {
-  border-bottom: 1px solid grey;
   height: 50px;
+  width: 50%;
   box-sizing: border-box;
+  float: left;
+  border: none;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: white;
+}
+.header:hover {
+  cursor: pointer;
+}
+.header:focus {
+  outline: none;
+  cursor: default;
+  border-bottom: 1px solid black;
 }
 #headerText {
-  text-align: left;
-  padding-top: 6px;
-  padding-left: 12px;
-  font-size: 32px;
+  text-align: center;
+  padding: 10px;
+  font-size: 22px;
   color: #0018a8;
 }
 #score {
