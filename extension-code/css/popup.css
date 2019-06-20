@@ -1,0 +1,32 @@
+#container {
+  width: 300px;
+}
+body {
+  margin: 0px;
+}
+.row {
+  height: 120px;
+  box-sizing: border-box;
+  background-color: #f7fcff;
+}
+.header {
+  border-bottom: 1px solid grey;
+  height: 50px;
+  box-sizing: border-box;
+}
+#headerText {
+  text-align: left;
+  padding-top: 6px;
+  padding-left: 12px;
+  font-size: 32px;
+  color: #0018a8;
+}
+#score {
+  text-align: center;
+  padding: 10px;
+  font-size: 72px;
+  color: #0018a8;
+}
+* {
+  font-family: Century Gothic;
+}
