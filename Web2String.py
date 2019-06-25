@@ -1,5 +1,3 @@
-# import nltk
-# import urllib
 import requests
 from bs4 import BeautifulSoup
 #import company_identifier
@@ -11,10 +9,13 @@ soup = BeautifulSoup(webURL.content, 'html.parser')
 # Loops through all the instances with a <p> tag and prints them
 y = soup.find_all('p')
 z = 0
+b = ""
 for x in y:
     a = soup.find_all('p')[z].get_text()
-    print(a)
+    b += a
     z += 1
+
+print(b)
 
 
 
