@@ -2,7 +2,7 @@ import spacy
 import pandas as pd
 
 # nlp is the library of the english language
-nlp = spacy.load('en')
+nlp = spacy.load('en_core_web_sm')
 
 
 def entity(x):
@@ -33,6 +33,5 @@ def find_ticker(ent_name):
     for name in names:
         if ent_name in name:
             ticker = tickers[i]
-            print(ticker)
-            return
+            return ticker
         i += 1
