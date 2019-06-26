@@ -25,13 +25,15 @@ def entity(x):
     return
 
 
+# maps entity name to corresponding ticker
 def find_ticker(ent_name):
-    xl = pd.read_excel('ticker.xlsx')
-    names = xl['Name']
-    tickers = xl['Ticker']
-    i = 0
+    xl = pd.read_excel('ticker.xlsx')  # read excel doc with entites/tickers
+    names = xl['Name']  # creates array of names in 'Name' column
+    tickers = xl['Ticker']  # creates array of tickers in 'Ticker' column
+    i = 0  # counter
     for name in names:
         if ent_name in name:
             ticker = tickers[i]
             return ticker
         i += 1
+
