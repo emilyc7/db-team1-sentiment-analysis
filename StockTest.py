@@ -5,21 +5,25 @@ import pandas_datareader.data as web
 from company_identifier import find_ticker as ft
 
 
-style.use('ggplot')
-# Sets the start and end date for stock data you need
-start = dt.datetime(2019, 1, 1)
-end = dt.datetime.now()
+# Takes in entity name as string and outputs graph of stock price
+def stockGraph(compName):
+    style.use('ggplot')
+    # Sets the start and end date for stock data you need
+    start = dt.datetime(2019, 1, 1)
+    end = dt.datetime.now()
 
-# uses find_ticker from company_identifier
-compName = "Apple"
-tickName = ft(compName)
+    # uses find_ticker from company_identifier
+    tickName = ft(compName)
 
-# Gets the stock data from Yahoo API
-df = web.DataReader(tickName, "yahoo", start, end)
+    # Gets the stock data from Yahoo API
+    df = web.DataReader(tickName, "yahoo", start, end)
 
-# formats the data better
-df.reset_index(inplace=True)
-df.set_index("Date", inplace=True)
+    # formats the data better
+    df.reset_index(inplace=True)
+    df.set_index("Date", inplace=True)
 
-df['Adj Close'].plot()
-plt.show()
+    df['Adj Close'].plot()
+    plt.show()
+
+
+
