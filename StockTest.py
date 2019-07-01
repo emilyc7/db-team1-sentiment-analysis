@@ -5,7 +5,7 @@ import pandas_datareader.data as web
 from company_identifier import find_ticker as ft
 
 
-# Takes in entity name as string and outputs graph of stock price
+# Takes in entity name as string and outputs graph of stock pricex`
 def stockGraph(compName):
     style.use('ggplot')
     # Sets the start and end date for stock data you need
@@ -23,7 +23,8 @@ def stockGraph(compName):
     df.set_index("Date", inplace=True)
 
     df['Adj Close'].plot()
-    plt.show()
+    plt.savefig('graph.jpeg')
+
 
 
 
