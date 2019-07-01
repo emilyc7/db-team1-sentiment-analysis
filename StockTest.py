@@ -47,5 +47,6 @@ def stockGraph(compName):
     plt.show()
 
 
+# just to test
 stockGraph("Apple")
 

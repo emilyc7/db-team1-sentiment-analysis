@@ -8,3 +8,5 @@ def getArticles(query):
     x = googlenews.getlinks()
     return x
 
+
+
