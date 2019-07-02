@@ -28,7 +28,7 @@ def stockGraph(compName):
     df['Adj Close'].plot()
     plt.ylabel('Close price(USD)')
     plt.title(compName)
-    plt.show()
+    plt.savefig('graph.jpeg')
 
     # Code to output data as candlestick graph
 
@@ -44,7 +44,7 @@ def stockGraph(compName):
     candlestick_ohlc(ax1, df_ohlc.values, width=2, colorup='green', colordown='red')
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
     plt.title(compName)
-    plt.show()
+    plt.savefig('candlestick.jpeg')
 
 
 # just to test
