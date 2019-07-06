@@ -36,6 +36,7 @@ class SentimentLSTM(nn.Module):
 
         # linear and sigmoid layers
         self.fc = nn.Linear(hidden_dim, output_size)
+        # self.tanh = nn.Tanh()
         self.sig = nn.Sigmoid()
         self.device = device
 
@@ -71,7 +72,6 @@ class SentimentLSTM(nn.Module):
         # initialized to zero, for hidden state and cell state of LSTM
         weight = next(self.parameters()).data
         # ### CONVERSION TO CUDA
-        print(train_on_gpu)
         if train_on_gpu:
             hidden = (weight.new(self.n_layers, batch_size, self.hidden_dim).zero_().cuda(self.device),
                       weight.new(self.n_layers, batch_size, self.hidden_dim).zero_().cuda(self.device))
@@ -83,14 +83,15 @@ class SentimentLSTM(nn.Module):
 
     def train_model(self, batch_size, train_loader, valid_loader, train_on_gpu=True):
         # loss and optimization functions
-        lr = 0.001
+        lr = 0.01
 
-        criterion = nn.BCELoss()
+        # criterion = nn.KLDivLoss()
+        criterion = nn.MSELoss()
+        criterion = criterion.cuda()
         optimizer = torch.optim.Adam(self.parameters(), lr=lr)
         # training params
-        epochs = 1  # 3-4 is approx where I noticed the validation loss stop decreasing
+        epochs = 2  # 3-4 is approx where I noticed the validation loss stop decreasing
 
-        counter = 0
         print_every = 50
         clip = 5  # gradient clipping
 
@@ -101,19 +102,18 @@ class SentimentLSTM(nn.Module):
         self.train()
         # train for some number of epochs
         for e in range(epochs):
+            counter = 0
             # initialize hidden state
             h = self.init_hidden(batch_size)
-            print("Hidden State")
-            print(h)
             # batch loop
             for inputs, labels in train_loader:
-                print(counter)
+                if counter % print_every == 0:
+                    print(counter)
                 counter += 1
-                print("Model inputs")
-                print(inputs)
+                # print("Model inputs")
                 if train_on_gpu:
                     inputs, labels = inputs.cuda(self.device), labels.cuda(self.device)  # ### CONVERSION TO GPU FORMAT
-                print(inputs)
+                # print(inputs)
                 # Creating new variables for the hidden state, otherwise
                 # we'd backprop through the entire training history
                 h = tuple([each.data for each in h])
@@ -140,35 +140,33 @@ class SentimentLSTM(nn.Module):
                     val_h = self.init_hidden(batch_size)
                     val_losses = []
                     self.eval()
+                    i = 0
                     for inputs, labels in valid_loader:
-
                         # Creating new variables for the hidden state, otherwise
                         # we'd backprop through the entire training history
                         val_h = tuple([each.data for each in val_h])
 
                         if train_on_gpu:
-                            inputs, labels = inputs.cuda(self.device), labels.cuda(self.device)   # ### CONVERSION TO GPU FORMAT
+                            inputs, labels = inputs.cuda(self.device), labels.cuda(self.device)  # ### CONVERSION TO GPU FORMAT
                         inputs = inputs.type(torch.LongTensor)
                         inputs = inputs.cuda(self.device)
                         labels = labels.cuda(self.device)
                         output, val_h = self(inputs, val_h)
                         val_loss = criterion(output.squeeze(), labels.float())
-
                         val_losses.append(val_loss.item())
-
+                        i = i+1
                     self.train()
+                    print(output)
                     print("Epoch: {}/{}...".format(e + 1, epochs),
                           "Step: {}...".format(counter),
                           "Loss: {:.6f}...".format(loss.item()),
                           "Val Loss: {:.6f}".format(np.mean(val_losses)))
-                if counter == 50:
-                    return
         return
 
     def test_model(self, batch_size, test_loader, train_on_gpu=True):
         test_losses = []  # track loss
         num_correct = 0
-        criterion = nn.BCELoss()
+        criterion = nn.KLDivLoss()
         # init hidden state
         h = self.init_hidden(batch_size)
 
@@ -181,13 +179,14 @@ class SentimentLSTM(nn.Module):
             h = tuple([each.data for each in h])
 
             if train_on_gpu:
-                inputs, labels = inputs.cuda(device=self.device), labels.cuda(device=self.device)   # ### CONVERSION TO GPU FORMAT
+                inputs, labels = inputs.cuda(device=self.device), labels.cuda(device=self.device)  # ### CONVERSION TO GPU FORMAT
 
             # get predicted outputs
             inputs = inputs.type(torch.LongTensor)
             inputs = inputs.cuda(self.device)
             labels = labels.cuda(self.device)
             output, h = self(inputs, h)
+
 
             # calculate loss
             test_loss = criterion(output.squeeze(), labels.float())
@@ -212,4 +211,4 @@ class SentimentLSTM(nn.Module):
         # accuracy over all test data
         test_acc = num_correct / len(test_loader.dataset)
         print("Test accuracy: {:.3f}".format(test_acc))
-        return
+        return output.cpu().detach().numpy()[0]
