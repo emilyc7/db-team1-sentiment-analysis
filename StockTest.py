@@ -5,7 +5,9 @@ import matplotlib.dates as mdates
 from mpl_finance import candlestick_ohlc
 import pandas_datareader.data as web
 from company_identifier import find_ticker as ft
-import numpy as np
+from urllib.request import urlopen
+import json
+from PIL import Image
 
 
 # Takes in entity name as string and outputs graph of stock price as jpeg file
@@ -47,6 +49,41 @@ def stockGraph(compName):
     plt.savefig('candlestick.jpeg')
 
 
-# just to test
-stockGraph("Apple")
+#Code for getting stock indicator icon
+
+#Downloads json file from API
+def get_jsonparsed_data(url):
+    response = urlopen(url)
+    data = response.read().decode("utf-8")
+    return json.loads(data)
+
+#Decides what indicator to use
+def stock_indicator(companyName):
+    ticker = ft(companyName)
+    url = "https://financialmodelingprep.com/api/company/profile/{}?datatype=json".format(ticker)
+    x = get_jsonparsed_data(url)
+    y = x[ticker]['ChangesPerc']
+    s = y[1]
+    s1 = y[1:7]
+    if s == '+':
+        indicator_image("green")
+        return ticker + ": " + s1 + " " + "green"
+    else:
+        indicator_image("red")
+        return ticker + ": " + s1 + " " + "red"
+
+
+# Returns the right image for the stock indicator
+def indicator_image(color):
+    imageUp = Image.open("StockUp.jpg")
+    imageDown = Image.open("StockDown.jpg")
+    if color == "green":
+        return imageUp
+    else:
+        return imageDown
+
+
+#stockGraph("Apple")
+
+stock_indicator('Tesla')
 
