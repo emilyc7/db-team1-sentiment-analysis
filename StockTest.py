@@ -83,7 +83,5 @@ def indicator_image(color):
         return imageDown
 
 
-#stockGraph("Apple")
 
-stock_indicator('Tesla')
 
