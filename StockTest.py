@@ -5,7 +5,6 @@ import matplotlib.dates as mdates
 from mpl_finance import candlestick_ohlc
 import pandas_datareader.data as web
 from company_identifier import find_ticker as ft
-import numpy as np
 
 
 # Takes in entity name as string and outputs graph of stock price as jpeg file
