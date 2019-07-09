@@ -42,3 +42,5 @@ def main(url):
             different_sentiment[different_count] = curr_article_sentiment
             different_count += 1
 
+
+main('https://www.cnbc.com/2019/07/08/axed-deutsche-bank-workers-leave-offices-en-masse-belongings-in-hand.html')

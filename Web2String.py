@@ -18,19 +18,3 @@ def url2string(url):
         z += 1
 
     return b
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
