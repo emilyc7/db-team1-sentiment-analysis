@@ -3,6 +3,7 @@ import Web2String
 import WebCrawler
 import company_identifier
 import StockTest
+import evaluate_NN
 
 
 def main(url):
@@ -12,7 +13,7 @@ def main(url):
     other_articles = WebCrawler.getArticles(entity)
     StockTest.stockGraph(entity)
 
-    main_article_sentiment = 0  # analyze sentiment of main article
+    main_article_sentiment = evaluate_NN.evaluate_NN(string)  # analyze sentiment of main article
     low_range = main_article_sentiment - 0.1
     high_range = main_article_sentiment + 0.1
 
@@ -29,7 +30,7 @@ def main(url):
         curr_article = Web2String.url2string(other_articles[x])
 
         # analyze sentiment of article
-        curr_article_sentiment = 0
+        curr_article_sentiment = evaluate_NN.evaluate_NN(curr_article)
 
         # if sentiment is within threshold, add to same_sentiment
         if low_range <= curr_article_sentiment <= high_range:

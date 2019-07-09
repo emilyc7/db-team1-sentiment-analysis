@@ -5,11 +5,11 @@ import numpy as np
 import nltk
 import json
 
-train_on_gpu = torch.cuda.is_available()
-device = torch.device('cuda:0' if train_on_gpu else 'cpu')
-
 
 def evaluate_NN(all_text, device, dictFileName="dictionary1.json", seqLen=40):
+    train_on_gpu = torch.cuda.is_available()
+    device = torch.device('cuda:0' if train_on_gpu else 'cpu')
+
     vocabToInt = json.load(open(dictFileName, 'r'))  # load the dictionary
     all_text = all_text.lower()
     words = all_text.split()  # make an array of words
@@ -42,7 +42,4 @@ def evaluate_NN(all_text, device, dictFileName="dictionary1.json", seqLen=40):
     output = output.cpu().detach().numpy()[0]
     print("p = " + str(output))
     return
-
-
-evaluate_NN("bad stuff i dont want this stockakjdsf;;sjkdbnvcjfkd", device)
 
