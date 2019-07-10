@@ -6,8 +6,7 @@ import numpy as np
 import nltk
 import json
 
-
-def evaluate_NN(all_text, dictFileName="dictionary1.json", seqLen=40):
+def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
     train_on_gpu = torch.cuda.is_available()
     device = torch.device('cuda:0' if train_on_gpu else 'cpu')
 
@@ -24,7 +23,8 @@ def evaluate_NN(all_text, dictFileName="dictionary1.json", seqLen=40):
     textListNum.append(r1)
 
     while len(textListNum[0]) < seqLen:  # force to uniform length
-        textListNum[0].append(0)
+        # textListNum[0].append(0)
+        textListNum[0].append(np.random.randint(0, len(vocabToInt)))
     if len(textListNum[0]) > seqLen:
         textListNum[0] = textListNum[0][:seqLen]
         print(textListNum)
@@ -32,18 +32,30 @@ def evaluate_NN(all_text, dictFileName="dictionary1.json", seqLen=40):
     # load the model
     device = torch.device(device)
     net = create_NN(len(vocabToInt)+1)
-    net.load_state_dict(torch.load("model2.pt", map_location={'cuda:0': 'cpu'}))
-    # print(net)
-    #net.cuda(device)
+    if train_on_gpu:
+        net.load_state_dict(torch.load("model2.pt"))
+    else:
+        net.load_state_dict(torch.load("model2.pt", map_location={'cuda:0': 'cpu'}))
+    print(net)
+    if train_on_gpu:
+        net.cuda(device)
     # run 1 forward test loop iteration
     # output = net.test_model(1, inputs)
     net.eval()
-    h = net.init_hidden(1, train_on_gpu=False)
+    h = net.init_hidden(1, train_on_gpu)
+
     h = tuple([each.data for each in h])
     output = net(inputs, h)
     # print(output)
     output = output[0]
-    output = output.cpu().detach().numpy()[0]
-    # print("p = " + str(output))
+    if train_on_gpu:
+        output = output.cpu().detach().numpy()[0]
+    else:
+        output = output.detach().numpy()[0]
+    print("p = " + str(output))
     return output
+
+
+# evaluate_NN("amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing")
+
 
