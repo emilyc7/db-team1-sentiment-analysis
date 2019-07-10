@@ -15,39 +15,42 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
-// XMLHttpRequest starts here 
+// XMLHttpRequest starts here
 window.onload = function() {
-	//create event listener when the button is clicked 
+	//create event listener when the button is clicked
 	document.getElementById('sentiment-btn').addEventListener('click', loadSentiment);
 	document.getElementById('stock-btn').addEventListener('click', loadStock);
 }
 
-// loads the sentiment 
-function loadSentiment() { 
+// loads the sentiment
+function loadSentiment() {
 	// Creates XMLHttpRequest object
 	var request = new XMLHttpRequest();
-	
-	// OPEN: type of request(should probably be POST), url/txt, async 
-	request.open('GET', 'sample1.json', true);
-	 
+
+	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    var url = tabs[0].url;
+	});
+
+	request.open('POST', 'http://192.168.99.100:4000/', true);
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	request.onload = function(){
 		// check status of response -if 200 it means everything is okay-
 		if(this.readyState == 4 && this.status == 200){
-			document.getElementById('serverResponse').innerHTML = this.responseText;
+			document.body.innerHTML = this.responseText;
 		}
 	}
 	// Sends request
-	request.send();
+	request.send({"url": url});
 }
 
 // loads the stock
 function loadStock() {
 	// Creates XMLHttpRequest object
 	var request = new XMLHttpRequest();
-	
+
 	// OPEN: type of request, url/txt, async
 	request.open('GET', 'sample1.json', true);
-	
+
 	request.onload = function(){
 		// check status of response -if 200 it means everything is okay-
 		if(this.readyState == 4 && this.status == 200){
