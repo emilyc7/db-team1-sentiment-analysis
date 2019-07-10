@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-#import main
+import main
 
 
 app = Flask(__name__)
@@ -11,10 +11,8 @@ def index():
 @app.route('/', methods = ['GET', 'POST'])
 def get_post_data():
     if request.method == 'POST':
-        # data should be jsdata
-        data = request.form.get('URL')
-        #should be able to call main 
-        #data = main(jsdata)
+        jsdata = request.form.get('URL')
+        data = main(jsdata)
         return render_template('popup.html', data=data)
 
 if __name__ == '__main__':
