@@ -15,13 +15,12 @@
   <h2>Sentiment Analysis</h2>
     <p> we can also put a little note here as well but for now its the URL</p>
   <form method="POST">
-		<input type="text" name = "URL" placeholder="URL"/>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<input type="text" name ="URL" placeholder="URL"></input>
+		<button type="button" class="btn btn-primary" onclick="loadSentiment()">Submit</button>
   </form>
-  
   </br>
   <div class="panel-group" id="accordion">
-  
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -32,7 +31,7 @@
         <div class="panel-body">The sentiment is: {{ data }} </div>
       </div>
     </div>
-	
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -43,7 +42,7 @@
         <div class="panel-body"></div>
       </div>
     </div>
-	
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -54,12 +53,11 @@
         <div class="panel-body"></div>
       </div>
     </div>
-	
-  </div> 
+
+  </div>
 </div>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
-
