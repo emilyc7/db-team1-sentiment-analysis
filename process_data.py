@@ -29,13 +29,17 @@ with open("output_data_shuffled.txt", "r") as f:
             while len(text) < 140:
                 text = text + " "
             textList.append(text)
-            senList.append((ord(sentiment[1]) - 48)/5.0)
+            # senList.append((ord(sentiment[1]) - 48)/5.0)
+            if (ord(sentiment[1]) - 48) > 0:
+                senList.append(1)
+            else:
+                senList.append(0)
             # if i == 200000:
             #     break
 print("Finished reading file")
 
 # load existing word dict
-dictFileName = "dictionary1.json"
+dictFileName = "dictionaryIMDB.json"
 vocabToInt = json.load(open(dictFileName, 'r'))  # load the dictionary
 print("Finished loading dictionary")
 # add new word dict
@@ -83,13 +87,13 @@ print("my net")
 print(net)  # ### IF GPU FORMAT, SHOULD STATE SO AT THE END OF THE PRINT STATEMENT
 
 length = len(inputs)
-split1 = 0.8
-split2 = 0.81
+split1 = 0.2
+split2 = 0.21
 # train_x = inputs[400000:int(split1*length)]
 # train_y = outputs[400000:int(split1*length)]
 
-train_x = inputs[300000:int(split1*length)]
-train_y = outputs[300000:int(split1*length)]
+train_x = inputs[0:int(split1*length)]
+train_y = outputs[0:int(split1*length)]
 valid_x = inputs[int(split1*length):int(split2*length)]
 print(len(valid_x))
 
@@ -113,5 +117,5 @@ net.train_model(batch_size, train_loader, valid_loader)
 # net.test_model(batch_size, test_loader)
 print(net)
 
-json.dump(vocabToInt, open("dictionary.json", 'w'))
+json.dump(vocabToInt, open("dictionaryBinary.json", 'w'))
 torch.save(net.state_dict(), "model2.pt")

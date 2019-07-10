@@ -3,7 +3,7 @@
 import numpy as np
 import torch
 import torch.nn as nn
-
+import matplotlib.pyplot as plt
 
 class SentimentLSTM(nn.Module):
     """
@@ -83,16 +83,19 @@ class SentimentLSTM(nn.Module):
 
     def train_model(self, batch_size, train_loader, valid_loader, train_on_gpu=True):
         # loss and optimization functions
-        lr = 0.01
+        lr = 0.005
+        VALLOSSES = list()
 
         # criterion = nn.KLDivLoss()
-        criterion = nn.MSELoss()
+        # criterion = nn.MSELoss()
+        # criterion = nn.CrossEntropyLoss()
+        criterion = nn.BCELoss()
         criterion = criterion.cuda()
         optimizer = torch.optim.Adam(self.parameters(), lr=lr)
         # training params
         epochs = 2  # 3-4 is approx where I noticed the validation loss stop decreasing
 
-        print_every = 50
+        print_every = 10
         clip = 5  # gradient clipping
 
         # move model to GPU, if available
@@ -100,11 +103,11 @@ class SentimentLSTM(nn.Module):
             self.cuda(self.device)
 
         self.train()
+        # initialize hidden state
+        h = self.init_hidden(batch_size)
         # train for some number of epochs
         for e in range(epochs):
             counter = 0
-            # initialize hidden state
-            h = self.init_hidden(batch_size)
             # batch loop
             for inputs, labels in train_loader:
                 if counter % print_every == 0:
@@ -128,6 +131,7 @@ class SentimentLSTM(nn.Module):
 
                 output, h = self(inputs, h)  # net()
                 # calculate the loss and perform backprop
+                # print(output.squeeze())
                 loss = criterion(output.squeeze(), labels.float())
                 loss.backward()
                 # `clip_grad_norm` helps prevent the exploding gradient problem in RNNs / LSTMs.
@@ -152,21 +156,26 @@ class SentimentLSTM(nn.Module):
                         inputs = inputs.cuda(self.device)
                         labels = labels.cuda(self.device)
                         output, val_h = self(inputs, val_h)
+                        # print(inputs)
+                        # print(output)
                         val_loss = criterion(output.squeeze(), labels.float())
                         val_losses.append(val_loss.item())
                         i = i+1
                     self.train()
-                    print(output)
                     print("Epoch: {}/{}...".format(e + 1, epochs),
                           "Step: {}...".format(counter),
                           "Loss: {:.6f}...".format(loss.item()),
                           "Val Loss: {:.6f}".format(np.mean(val_losses)))
+                    VALLOSSES.append(np.mean(val_losses))
+        plt.plot(VALLOSSES)
+        plt.show()
         return
 
     def test_model(self, batch_size, test_loader, train_on_gpu=True):
         test_losses = []  # track loss
         num_correct = 0
-        criterion = nn.KLDivLoss()
+        # criterion = nn.KLDivLoss()
+        criterion = nn.BCELoss()
         # init hidden state
         h = self.init_hidden(batch_size)
 
