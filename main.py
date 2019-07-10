@@ -13,9 +13,14 @@ def main(url):
     other_articles = WebCrawler.getArticles(entity)
     StockTest.stockGraph(entity)
 
+    print(string)
     main_article_sentiment = evaluate_NN.evaluate_NN(string)  # analyze sentiment of main article
     low_range = main_article_sentiment - 0.1
+    if low_range < 0:
+        low_range = 0
     high_range = main_article_sentiment + 0.1
+    if high_range > 1:
+        high_range = 1
 
     # arrays that will hold similar/different articles and their sentiments
     same_article = []
@@ -42,5 +47,8 @@ def main(url):
             different_sentiment[different_count] = curr_article_sentiment
             different_count += 1
 
+    print(entity)
+    print(main_article_sentiment*10)
 
-main('https://www.cnbc.com/2019/07/08/axed-deutsche-bank-workers-leave-offices-en-masse-belongings-in-hand.html')
+
+main('https://www.reuters.com/article/us-apple-services-research/apples-services-revenue-china-to-power-third-quarter-analyst-idUSKCN1U40SH')
