@@ -27,22 +27,23 @@ def evaluate_NN(all_text, dictFileName="dictionary1.json", seqLen=40):
         textListNum[0].append(0)
     if len(textListNum[0]) > seqLen:
         textListNum[0] = textListNum[0][:seqLen]
+        print(textListNum)
     inputs = torch.tensor(np.array(textListNum), device=device)
     # load the model
     device = torch.device(device)
     net = create_NN(len(vocabToInt)+1)
-    net.load_state_dict(torch.load("model2.pt"))
-    print(net)
-    net.cuda(device)
+    net.load_state_dict(torch.load("model2.pt", map_location={'cuda:0': 'cpu'}))
+    # print(net)
+    #net.cuda(device)
     # run 1 forward test loop iteration
     # output = net.test_model(1, inputs)
     net.eval()
-    h = net.init_hidden(1)
+    h = net.init_hidden(1, train_on_gpu=False)
     h = tuple([each.data for each in h])
     output = net(inputs, h)
-    print(output)
+    # print(output)
     output = output[0]
     output = output.cpu().detach().numpy()[0]
-    print("p = " + str(output))
-    return
+    # print("p = " + str(output))
+    return output
 
