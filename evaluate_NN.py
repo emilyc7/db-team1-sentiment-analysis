@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
 import nltk
 import json
+from string import punctuation
 
 
 def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
@@ -11,12 +12,14 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
     device = torch.device('cuda:0' if train_on_gpu else 'cpu')
     vocabToInt = json.load(open(dictFileName, 'r'))  # load the dictionary
     all_text = all_text.lower()
+    all_text = ''.join([c for c in all_text if c not in punctuation])
     words = all_text.split()  # make an array of words
     textListNum = list()  # to become list of lists holding tweets and words
     r1 = list()
     for word in words:  # iterate through text tweet by tweet
-        r = vocabToInt[word]  # convert words to unique integers
-        r1.append(r)
+        if word in vocabToInt:
+            r = vocabToInt[word]  # convert words to unique integers
+            r1.append(r)
     textListNum.append(r1)
 
     while len(textListNum[0]) < seqLen:  # force to uniform length
@@ -41,7 +44,6 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
     h = net.init_hidden(1, train_on_gpu)
     h = tuple([each.data for each in h])
     output = net(inputs, h)
-    print(output)
     output = output[0]
     if train_on_gpu:
         output = output.cpu().detach().numpy()[0]
@@ -51,5 +53,5 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
     return output
 
 
-evaluate_NN("amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing")
+evaluate_NN("amazing amazing amazing amazing amazing Amazing// amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing")
 
