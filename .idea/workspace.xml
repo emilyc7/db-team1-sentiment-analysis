@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9add5629-864e-4d15-ab50-a2c2b5f997e9" name="Default Changelist" comment="" />
+    <list default="true" id="9add5629-864e-4d15-ab50-a2c2b5f997e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluate_NN.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluate_NN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/backgrounds.js" beforeDir="false" afterPath="$PROJECT_DIR$/backgrounds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/font.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/css/normalize.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/normalize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/css/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/customcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/customcss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/flaskapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskapp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/images/icons8-bonds-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons8-bonds-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/images/icons8-bonds-19.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons8-bonds-19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/images/icons8-bonds-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons8-bonds-32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/images/icons8-bonds-48.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons8-bonds-48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/jquery-3.4.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/jquery-3.4.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension-code/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/popup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,15 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/process_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/company_editor.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -30,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluate_NN.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="55" column="62" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
+              <caret line="55" column="2" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -42,9 +51,36 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/process_data_IMDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/company_identifier.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -60,7 +96,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/process_data_IMDB.py" />
         <option value="$PROJECT_DIR$/evaluate_NN.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -93,6 +131,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/evaluate_NN.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -105,7 +149,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.process_data_IMDB">
     <configuration name="evaluate_NN" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="db-team1-sentiment-analysis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,6 +171,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="process_data_IMDB" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="db-team1-sentiment-analysis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../Intern_Project/venvMLpython3/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_data_IMDB.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.evaluate_NN" />
+      <item itemvalue="Python.process_data_IMDB" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -202,9 +271,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update in evaluate_NN to fix the punctuation and missing vocab keys" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/company_identifier.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/company_editor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -217,18 +283,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/process_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="69" />
+        <state relative-caret-position="255">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/company_identifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/process_data_IMDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluate_NN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="55" column="62" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
+          <caret line="55" column="2" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="2" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
         </state>
       </provider>
     </entry>

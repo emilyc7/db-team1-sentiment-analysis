@@ -35,7 +35,7 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
         net.load_state_dict(torch.load("model2.pt"))
     else:
         net.load_state_dict(torch.load("model2.pt", map_location={'cuda:0': 'cpu'}))
-    print(net)
+    # print(net)
     if train_on_gpu:
         net.cuda(device)
     # run 1 forward test loop iteration
@@ -49,9 +49,9 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
         output = output.cpu().detach().numpy()[0]
     else:
         output = output.detach().numpy()[0]
-    print("p = " + str(output))
+    # print("p = " + str(output))
     return output
 
 
-evaluate_NN("amazing amazing amazing amazing amazing Amazing// amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing")
+# evaluate_NN("amazing amazing amazing amazing amazing Amazing// amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing amazing")
 
