@@ -20,10 +20,13 @@ print(device)
 
 textList = list()
 senList = list()
-posFileNames = os.listdir("pos/")
-negFileNames = os.listdir("neg/")
+files = os.listdir(os.getcwd())
+print(files)
+print(os.getcwd())
+posFileNames = os.listdir("/home/steve/Desktop/db-team1-sentiment-analysis/pos")
+negFileNames = os.listdir("/home/steve/Desktop/db-team1-sentiment-analysis/neg")
 for name in posFileNames:
-    with open("pos/" + name, "r") as f:
+    with open("/home/steve/Desktop/db-team1-sentiment-analysis/pos/" + name, "r") as f:
         lines = f.readlines()
         text = ''
         for line in lines:
@@ -33,7 +36,7 @@ for name in posFileNames:
         textList.append(text)
         senList.append(1)
 for name in negFileNames:
-    with open("neg/" + name, "r") as f:
+    with open("/home/steve/Desktop/db-team1-sentiment-analysis/neg/" + name, "r") as f:
         lines = f.readlines()
         text = ''
         for line in lines:
@@ -49,7 +52,7 @@ print("Finished reading file")
 
 # load existing word dict
 dictFileName = "dictionaryIMDB.json"
-vocabToInt = json.load(open(dictFileName, 'r'))  # load the dictionary
+vocabToInt = json.load(open("/home/steve/Desktop/db-team1-sentiment-analysis/" + dictFileName, 'r'))  # load the dictionary
 print("Finished loading dictionary")
 
 textListNum = list()  # to become list of lists holding tweets and words
@@ -61,15 +64,15 @@ for text in textList:  # iterate through text tweet by tweet
     textListNum.append(r)
 print("seqLen = ")
 print(seqLen)
-seqLen = 500
+seqLen = 200
 inputs = np.zeros((len(textListNum), seqLen), dtype=int)  # 2D array formatting to suit NN batch input
 i = 0
 for nums in textListNum:
     if len(nums) > seqLen:
         nums = nums[0:seqLen]
     while len(nums) < seqLen:
-        # nums.append(0)  # pad tweets with less words with zeros to match seqLen
-        nums.append(np.random.randint(0, len(vocabToInt)))
+        nums.append(0)  # pad tweets with less words with zeros to match seqLen
+        # nums.append(np.random.randint(0, len(vocabToInt)))
     inputs[i, :] = np.array(nums)
     i = i+1
 
@@ -110,7 +113,7 @@ valid_data = TensorDataset(torch.from_numpy(valid_x), torch.from_numpy(valid_y))
 # test_data = TensorDataset(torch.from_numpy(test_x), torch.from_numpy(test_y))
 
 # dataloaders
-batch_size = 5
+batch_size = 50
 train_loader = DataLoader(train_data, shuffle=True, batch_size=batch_size, drop_last=True)
 valid_loader = DataLoader(valid_data, shuffle=True, batch_size=batch_size, drop_last=True)
 # test_loader = DataLoader(test_data, shuffle=True, batch_size=batch_size)
@@ -120,5 +123,5 @@ net.train_model(batch_size, train_loader, valid_loader)
 # net.test_model(batch_size, test_loader)
 print(net)
 
-json.dump(vocabToInt, open("dictionaryBinary.json", 'w'))
-torch.save(net.state_dict(), "model3.pt")
+json.dump(vocabToInt, open("/home/steve/Desktop/db-team1-sentiment-analysis/dictionaryBinary.json", 'w'))
+torch.save(net.state_dict(), "/home/steve/Desktop/db-team1-sentiment-analysis/model4.pt")

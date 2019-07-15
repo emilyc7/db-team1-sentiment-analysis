@@ -83,7 +83,7 @@ class SentimentLSTM(nn.Module):
 
     def train_model(self, batch_size, train_loader, valid_loader, train_on_gpu=True):
         # loss and optimization functions
-        lr = 0.005
+        lr = 0.001
         VALLOSSES = list()
 
         # criterion = nn.KLDivLoss()
@@ -93,9 +93,9 @@ class SentimentLSTM(nn.Module):
         criterion = criterion.cuda()
         optimizer = torch.optim.Adam(self.parameters(), lr=lr)
         # training params
-        epochs = 2  # 3-4 is approx where I noticed the validation loss stop decreasing
+        epochs = 4  # 3-4 is approx where I noticed the validation loss stop decreasing
 
-        print_every = 10
+        print_every = 50
         clip = 5  # gradient clipping
 
         # move model to GPU, if available
@@ -103,11 +103,11 @@ class SentimentLSTM(nn.Module):
             self.cuda(self.device)
 
         self.train()
-        # initialize hidden state
-        h = self.init_hidden(batch_size)
         # train for some number of epochs
         for e in range(epochs):
             counter = 0
+            # initialize hidden state
+            h = self.init_hidden(batch_size)
             # batch loop
             for inputs, labels in train_loader:
                 if counter % print_every == 0:
