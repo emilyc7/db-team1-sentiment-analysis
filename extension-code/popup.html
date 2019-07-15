@@ -3,10 +3,10 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="customcss.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/customcss.css">
+  <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <p> we can also put a little note here as well but for now its the URL</p>
   <form method="POST">
 		<input type="text" name ="URL" placeholder="URL"></input>
-		<button type="button" class="btn btn-primary" onclick="loadSentiment()">Submit</button>
+		<button type="button" class="btn btn-primary" id="sentiment-btn">Submit</button>
   </form>
   </br>
   <div class="panel-group" id="accordion">
