@@ -1,1 +1,17 @@
 Flask
+torch
+numpy
+nltk
+json
+string
+datetime
+matplotlib
+mpl_finance
+pandas_datareader
+urllib
+PIL
+spacy
+pandas
+GoogleNews
+requests
+bs4
