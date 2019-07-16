@@ -83,8 +83,10 @@ class SentimentLSTM(nn.Module):
 
     def train_model(self, batch_size, train_loader, valid_loader, train_on_gpu=True):
         # loss and optimization functions
-        lr = 0.005
+        lr = 0.001
+        LOSSES = list()
         VALLOSSES = list()
+        EPOCHS = list()
 
         # criterion = nn.KLDivLoss()
         # criterion = nn.MSELoss()
@@ -93,9 +95,9 @@ class SentimentLSTM(nn.Module):
         criterion = criterion.cuda()
         optimizer = torch.optim.Adam(self.parameters(), lr=lr)
         # training params
-        epochs = 2  # 3-4 is approx where I noticed the validation loss stop decreasing
+        epochs = 10  # 3-4 is approx where I noticed the validation loss stop decreasing
 
-        print_every = 10
+        print_every = 50
         clip = 5  # gradient clipping
 
         # move model to GPU, if available
@@ -103,11 +105,12 @@ class SentimentLSTM(nn.Module):
             self.cuda(self.device)
 
         self.train()
-        # initialize hidden state
-        h = self.init_hidden(batch_size)
         # train for some number of epochs
+        cnt = 0
         for e in range(epochs):
             counter = 0
+            # initialize hidden state
+            h = self.init_hidden(batch_size)
             # batch loop
             for inputs, labels in train_loader:
                 if counter % print_every == 0:
@@ -167,8 +170,15 @@ class SentimentLSTM(nn.Module):
                           "Loss: {:.6f}...".format(loss.item()),
                           "Val Loss: {:.6f}".format(np.mean(val_losses)))
                     VALLOSSES.append(np.mean(val_losses))
-        plt.plot(VALLOSSES)
-        plt.show()
+                    LOSSES.append(loss.item())
+                    EPOCHS.append(cnt/8)
+                    cnt = cnt + 1
+        # plt.plot(EPOCHS, VALLOSSES, label='Validation data loss')
+        # plt.plot(EPOCHS, VALLOSSES, label='Training data loss')
+        # plt.ylabel("Binary Cross-Entropy Loss")
+        # plt.xlabel("Epochs")
+        # plt.plot()
+        # plt.show()
         return
 
     def test_model(self, batch_size, test_loader, train_on_gpu=True):
