@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Stock Sentiment",
+  "version": "0.1",
+
+  "description": "Sentiment analyser and stock informer.",
+  "icons": {
+	"19": "images/icons8-bonds-19.png",
+     	"32": "images/icons8-bonds-32.png",
+        "48": "images/icons8-bonds-48.png",
+        "100": "images/icons8-bonds-100.png"
+      	},
+
+  "browser_action": {
+  "default_popup": "popup.html"
+   },
+
+  "permissions": ["http://localhost/*"],  
+
+ "background": {
+            "scripts": ["backgrounds.js" ],
+            "persistent": false
+        }
+
+}
