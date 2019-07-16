@@ -1,0 +1,45 @@
+/**
+ * Chrome Extension Twitter Bootstrap 3 Template
+ * Custom CSS
+ *	
+ */
+
+body{
+    width: 450px;
+	height: 500px;
+	padding-top: 3px;
+}
+
+li { 
+	padding: 25px;
+}
+
+.nav-tabs > li{
+    float: none;
+    display: inline-block;
+}
+
+.nav-tabs {
+	text-align: center;
+	padding-top: 2%;
+}
+
+/*  */
+
+/* Two image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+

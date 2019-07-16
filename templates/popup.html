@@ -1,63 +1,54 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <title>Sentiment Analysis</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">  
+  <script src="jquery-3.4.1.js"></script>
+  <script src="bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="customcss.css">
+
 </head>
-
 <body>
+  <form action = "http://localhost:5000/" method = "POST">
+    <input type = "text" name = "URL" placeholder = "URL" />
+    <input type = "submit" value = "submit" />
+  </form> 
+	
+  <ul class="nav nav-tabs">
+    <li><h4><a data-toggle="tab" href="#menu1">Sentiment</a></h4></li>
+    <li><h4><a data-toggle="tab" href="#menu2">Stocks</a></h4></li>
+    <li><h4><a data-toggle="tab" href="#menu3">Articles</a></h4></li>
+  </ul>
 
-<div class="container">
-  <h2>Sentiment Analysis</h2>
-    <p> we can also put a little note here as well but for now its the URL</p>
-  <form method="POST">
-		<input type="text" name ="URL" placeholder="URL"></input>
-		<button type="button" class="btn btn-primary" onclick="loadSentiment()">Submit</button>
-  </form>
-  </br>
-  <div class="panel-group" id="accordion">
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Sentiment</a>
-        </h4>
-      </div>
-      <div id="collapse1" class="panel-collapse collapse">
-        <div class="panel-body">The sentiment is: {{ data }} </div>
-      </div>
+  <div class="tab-content">
+    <div id="menu1" class="tab-pane fade">
+      <p> .... </p>
     </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Stocks</a>
-        </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body"></div>
-      </div>
+    <div id="menu2" class="tab-pane fade">
+      <p>..</p>
     </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Articles</a>
-        </h4>
-      </div>
-      <div id="collapse3" class="panel-collapse collapse">
-        <div class="panel-body"></div>
-      </div>
-    </div>
-
+    <div id="menu3" class="tab-pane fade">
+	
+	<div class="row">
+	  <div class="column">
+		<p>...</p>
+	  </div>
+	  <div class="column">
+	  		<p>...</p>
+	  </div>
+	  <div class="column">
+	  		<p>...</p>
+	  </div>
+	  <div class="column">
+	  		<p>...</p>
+	  </div>
+	</div>
+		
   </div>
 </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
+

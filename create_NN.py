@@ -3,7 +3,7 @@ from NN_model import SentimentLSTM
 
 def create_NN(inputLen, device=None):
     output_size = 1
-    embedding_dim = 500
+    embedding_dim = 400
     hidden_dim = 256
     n_layers = 2
     device = device
