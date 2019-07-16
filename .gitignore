@@ -2,3 +2,6 @@ venv/
 venvMLpython3/
 model2.pt
 model4.pt
+.idea/db-team1-sentiment-analysis.iml
+.idea/misc.xml
+.idea/workspace.xml
