@@ -1,3 +1,5 @@
 venv/
 venvMLpython3/
 model2.pt
+__pycache__
+.idea/workspace.xml
