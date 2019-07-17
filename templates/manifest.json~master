@@ -15,10 +15,10 @@
   "default_popup": "popup.html"
    },
 
-  "permissions": ["tabs"],  
+  "permissions": ["http://localhost/*"],  
 
  "background": {
-            "scripts": ["jquery-3.4.1.js","backgrounds.js" ],
+            "scripts": ["backgrounds.js" ],
             "persistent": false
         }
 

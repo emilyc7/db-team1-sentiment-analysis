@@ -1,0 +1,13 @@
+Flask
+xlrd
+torch
+numpy
+nltk
+matplotlib
+mpl_finance
+pandas_datareader
+pillow
+spacy
+pandas
+GoogleNews
+requests

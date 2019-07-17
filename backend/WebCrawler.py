@@ -7,6 +7,3 @@ def getArticles(query):
     googlenews.search(query)
     x = googlenews.getlinks()
     return x
-
-
-
