@@ -12,7 +12,7 @@ def main(url):
     # ticker = company_identifier.find_ticker(entity)
     other_articles = WebCrawler.getArticles(entity)
     StockTest.stockGraph(entity)
-
+    
     # print(string)
     main_article_sentiment = evaluate_NN.evaluate_NN(string)  # analyze sentiment of main article
     low_range = main_article_sentiment - 0.1

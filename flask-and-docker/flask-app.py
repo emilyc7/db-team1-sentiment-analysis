@@ -1,14 +1,22 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from main import main
+
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
 def get_post_data():
+    
     if request.method == 'POST':
-        # data should be jsdata
+
         data = request.get_json()
-        #should be able to call main
-        #data = main(jsdata)
-        resp = jsonify(success=True)
+        # app.logger.error("got JSON, next is getting url from JSON")
+
+        url_string = data['url']
+        # app.logger.error("Here's the url: " + url_string)
+
+        rv = main(url_string)
+
+        resp = jsonify(success=True, score=rv)
         return resp
 
 if __name__ == "__main__":
