@@ -3,3 +3,4 @@ venvMLpython3/
 model2.pt
 .idea
 model4.pt
+__pyc__
