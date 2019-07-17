@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <script src="js/popup.js"></script>
-</head>
+  <meta charset="utf-8">
+  <meta name="description" content="A sentiment analyser complemented with stock information.">
+  <meta name="author" content="DB Team 1">
 
+  <script src="js/popup.js"></script>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
 <body>
-<div id="testdiv">
+
+<!-- Primary Page Layout -->
+<div id="container">
+    <button class="header">
+      <div id="sentiment-btn" class="header-text">sentiment</div>
+    </button>
+    <button class="header">
+      <div id="stock-btn" class="header-text">stocks</div>
+    </button>
+    <button class="header">
+      <div id="article-btn" class="header-text">articles</div>
+    </button>
+
+  <div class="row">
+    <div id="score">5</div>
+  </div>
 </div>
+<!-- End Document -->
 </body>
 </html>

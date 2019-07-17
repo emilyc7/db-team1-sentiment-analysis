@@ -13,10 +13,11 @@ body {
   box-sizing: border-box;
   background-color: #fdfdfd;
 }
+
 /* enabled transitions and side by side design for header */
 .header {
-  height: 50px;
-  width: 50%;
+  height: 40px;
+  width: 33.3%;
   box-sizing: border-box;
   float: left;
   border: none;
@@ -37,7 +38,7 @@ body {
 .header-text {
   text-align: center;
   padding: 10px;
-  font-size: 22px;
+  font-size: 16px;
   color: #0018a8;
 }
 /* text in the score */
