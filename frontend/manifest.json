@@ -17,13 +17,13 @@
 
   "content_scripts": [{
     "matches" : ["<all_urls>"],
-    "js" : [ "content.js" ]
+    "js" : [ "js/content.js" ]
   }],
 
-  "permissions": ["tabs", "http://192.168.99.100:4000/*"],
+  "permissions": ["tabs", "http://localhost:5000/*"],
 
  "background": {
-            "scripts": ["jquery-3.4.1.js","backgrounds.js" ],
+            "scripts": ["js/backgrounds.js" ],
             "persistent": true
         }
 
