@@ -15,11 +15,16 @@
   "default_popup": "popup.html"
    },
 
+  "content_scripts": [{
+    "matches" : ["<all_urls>"],
+    "js" : [ "content.js" ]
+  }],
+
   "permissions": ["tabs", "http://192.168.99.100:4000/*"],
 
  "background": {
             "scripts": ["jquery-3.4.1.js","backgrounds.js" ],
-            "persistent": false
+            "persistent": true
         }
 
 }

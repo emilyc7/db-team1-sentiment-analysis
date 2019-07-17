@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
 from main import main
 
 app = Flask(__name__)
@@ -16,8 +16,7 @@ def get_post_data():
 
         rv = main(url_string)
 
-        resp = jsonify(success=True, score=rv)
-        return resp
-
+        return rv
+    
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

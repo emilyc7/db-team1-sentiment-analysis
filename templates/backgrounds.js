@@ -10,6 +10,8 @@
 // 	//document.getElementById('sentiment-btn').addEventListener('click', loadSentiment());
 // 	// document.getElementById('stock-btn').addEventListener('click', loadStock);
 // }
+var rv;
+
 chrome.runtime.onMessage.addListener(
   (request, sender, senderResponse) => {
     if(request.message == 'test') {
@@ -17,20 +19,30 @@ chrome.runtime.onMessage.addListener(
       	var xmlr = new XMLHttpRequest();
         var url = request.url;
         console.log(url)
-      	xmlr.open("POST", "http://192.168.99.100:4000/", true);
+      	xmlr.open("POST", "http://localhost:5000/", true);
       	xmlr.setRequestHeader("Content-Type", "application/json");
 
       	xmlr.onload = function(){
       		// check status of response -if 200 it means everything is okay-
       		if(this.status == 200){
       			console.log(this.responseText);
+                rv = this.responseText;
       		}
       	}
+
       	// Sends request
       	xmlr.send(JSON.stringify({ "url" : url }));
     }
   }
 );
+
+ chrome.extension.onConnect.addListener(function(port) {
+      console.log("Connected .....");
+      port.onMessage.addListener(function(msg) {
+           console.log("message recieved" + msg);
+           port.postMessage(rv);
+      });
+ })
 // chrome.browserAction.onClicked.addListener(function(tab) {
 //     console.log("opened")
 // });
