@@ -32,10 +32,12 @@ def main(url):
 # 
 # =============================================================================
     # return other_articles (list of urls), other_article_sentiment (list of sentiments), main_article_sentiment (original article's sentiment), entity (company name), ticker data (csv)
-    other_articles = [ "sampleOne.com", "sampleTwo.com", "sampleThree.com", "sampleFour.com", "sampleFive.com" ]
-    other_article_sentiment = [1, 2, 3, 4, 5]
-    main_article_sentiment = 10
-    entity = "Deutsche Bank"
+# =============================================================================
+#     other_articles = [ "sampleOne.com", "sampleTwo.com", "sampleThree.com", "sampleFour.com", "sampleFive.com" ]
+#     other_article_sentiment = [1, 2, 3, 4, 5]
+#     main_article_sentiment = 10
+#     entity = "Deutsche Bank"
+# =============================================================================
     
     other_articles_dict = { 'other_articles' : { 'one' : 'sampleOne.com', 'two' : 'sampleTwo.com', 'three' : 'sampleThree.com', 'four' : 'sampleFour.com', 'five' : 'sampleFive.com' }}
     other_article_sentiment_dict = { 'other_articles_sentiment' : { 'one' : 1, 'two' : 2, 'three' : 3, 'four' : 4, 'five' : 5 }}
@@ -51,5 +53,5 @@ def main(url):
     
     rv_json = json.dumps(rv)
     
-    return rv_json;
+    return rv_json
 # main('https://www.reuters.com/article/us-apple-services-research/apples-services-revenue-china-to-power-third-quarter-analyst-idUSKCN1U40SH')
