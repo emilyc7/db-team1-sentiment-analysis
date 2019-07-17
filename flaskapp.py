@@ -12,8 +12,10 @@ def index():
 def get_post_data():
     if request.method == 'POST':
         jsdata = request.form.get('URL')
-        data = main(jsdata)
+        data = main.main(jsdata)
         return render_template('popup.html', data=data)
+
 
 if __name__ == '__main__':
    app.run(debug = True, port=5000)
+
