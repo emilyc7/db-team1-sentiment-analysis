@@ -17,6 +17,6 @@ def get_post_data():
         rv = main(url_string)
 
         return rv
-    
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
