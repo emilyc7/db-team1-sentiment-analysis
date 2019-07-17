@@ -1,0 +1,14 @@
+/**
+ * Chrome Extension Twitter Bootstrap 3 Template
+ * Custom CSS
+ *	
+ */
+
+body {
+    width: 400px;
+	height: 350px;
+}
+
+.panel-body{
+	height: 200px;
+}
