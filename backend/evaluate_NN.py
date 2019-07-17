@@ -8,7 +8,7 @@ from string import punctuation
 
 def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=40):
     train_on_gpu = torch.cuda.is_available()
-    device = torch.device('cuda:0' if train_on_gpu else 'cpu')
+    device = torch.device('cuda' if train_on_gpu else 'cpu')
     vocabToInt = json.load(open(dictFileName, 'r'))  # load the dictionary
     all_text = all_text.lower()
     all_text = ''.join([c for c in all_text if c not in punctuation])
