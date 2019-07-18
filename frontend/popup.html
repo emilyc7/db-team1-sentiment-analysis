@@ -13,15 +13,35 @@
 <!-- Primary Page Layout -->
 <div id="container">
     <button class="header">
-        <div id="sentiment-btn" class="header-text">sentiment</div>
+        <div id="sentiment-btn" class="header-text">Sentiment</div>
     </button>
     <button class="header">
-        <div id="stock-btn" class="header-text">stocks</div>
+        <div id="stock-btn" class="header-text">Other Articles</div>
     </button>
     <button class="header">
-        <div id="article-btn" class="header-text">articles</div>
+        <div id="article-btn" class="header-text">Stock dynamics</div>
     </button>
-    <div class="progress-circle" data-progress="10" id="sent-circle"></div> <!-- this line needs to change based on the sentiment -->
+
+        <!-- Tab content -->
+    <div id="main-sent" class="tabcontent">
+        <h3>What this article thinks</h3>
+        <h1 id="entity-name">Hello world!</h1>
+        <div class="progress-circle" data-progress="10" id="sent-circle-main"></div> <!-- this line needs to change based on the sentiment -->
+    </div>
+
+    <div id="add-sent" class="tabcontent">
+        <h3>What others think</h3>
+            <div class="progress-circle" data-progress="10" id="sent-circle-add0"></div> <!-- this line needs to change based on the sentiment -->
+            <div class="progress-circle" data-progress="10" id="sent-circle-add1"></div> <!-- this line needs to change based on the sentiment -->
+            <div class="progress-circle" data-progress="10" id="sent-circle-add2"></div> <!-- this line needs to change based on the sentiment -->
+            <div class="progress-circle" data-progress="10" id="sent-circle-add3"></div> <!-- this line needs to change based on the sentiment -->
+            <div class="progress-circle" data-progress="10" id="sent-circle-add4"></div> <!-- this line needs to change based on the sentiment -->
+    </div>
+
+    <div id="stock-graph" class="tabcontent">
+        <h3>Stock graph</h3>
+        <p>Here goes the stock graph.</p>
+    </div>
 </div>
 <!-- End Document -->
 </body>

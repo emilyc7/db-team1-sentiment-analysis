@@ -4,7 +4,7 @@
 /* container is the overall structure; setting it to only
 set width so that height can be changed by elements */
 #container {
-  width: 300px;
+  width: 350px;
 }
 /* setting default margin to 0 to fix weird border issue */
 body {
@@ -19,7 +19,7 @@ body {
 
 /* enabled transitions and side by side design for header */
 .header {
-  height: 40px;
+  height: 60px;
   width: 33.3%;
   box-sizing: border-box;
   float: left;
