@@ -1,9 +1,8 @@
  var port = chrome.extension.connect({
-      name: "Sample Communication"
+      name: "popup and background"
  });
- port.postMessage("Hi BackGround");
+  port.postMessage("starting up");
  port.onMessage.addListener(function(msg) {
     data = JSON.parse(msg);
-
     document.getElementById("sent-circle").setAttribute("data-progress", "15");
  });
