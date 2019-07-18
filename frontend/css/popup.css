@@ -1,5 +1,5 @@
 /* setting default font to century gothic */
-* { font-family: courier !important }
+* { font-family: Helvetica !important }
 
 /* container is the overall structure; setting it to only
 set width so that height can be changed by elements */

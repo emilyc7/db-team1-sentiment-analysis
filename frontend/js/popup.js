@@ -5,5 +5,5 @@
  port.onMessage.addListener(function(msg) {
     data = JSON.parse(msg);
 
-    document.getElementById("sent-circle").setAttribute("data-progress", "15");
+    document.getElementById("sent-circle").setAttribute("data-progress", "100");
  });
