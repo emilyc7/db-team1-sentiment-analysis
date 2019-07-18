@@ -1,25 +1,14 @@
-// chrome.runtime.onStartup.addEventListener(function() {
-// 	console.log("hello");
-// };
-
-
-//
-// // XMLHttpRequest starts here
-// window.onload = function() {
-// 	//create event listener when the button is clicked
-// 	//document.getElementById('sentiment-btn').addEventListener('click', loadSentiment());
-// 	// document.getElementById('stock-btn').addEventListener('click', loadStock);
-// }
 var rv;
+var hasReceived = false;
 
 chrome.runtime.onMessage.addListener(
   (request, sender, senderResponse) => {
-    if(request.message == 'test') {
+    if(request.message == 'url') {
       
       	var xmlr = new XMLHttpRequest();
         var url = request.url;
         console.log(url)
-      	xmlr.open("POST", "http://localhost:5000/", true);
+      	xmlr.open("POST", "http://localhost:5000/sentiment", true);
       	xmlr.setRequestHeader("Content-Type", "application/json");
 
       	xmlr.onload = function(){
@@ -37,12 +26,7 @@ chrome.runtime.onMessage.addListener(
 );
 
  chrome.extension.onConnect.addListener(function(port) {
-      console.log("Connected .....");
-      port.onMessage.addListener(function(msg) {
-           console.log("message recieved" + msg);
-           port.postMessage(rv);
+      port.onMessage.addListener(function(msg) { // received connection from popup.js
+           if(msg == "starting up") port.postMessage(rv);
       });
  })
-// chrome.browserAction.onClicked.addListener(function(tab) {
-//     console.log("opened")
-// });
