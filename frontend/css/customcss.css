@@ -19,7 +19,7 @@
   border-radius: 50%;
   content: attr(data-progress);
   display: flex;
-  font-size: 3rem;
+  font-size: 5rem;
   justify-content: center;
   position: absolute;
   left: 1rem;

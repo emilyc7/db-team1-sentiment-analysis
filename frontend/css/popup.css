@@ -1,3 +1,6 @@
+/* setting default font to century gothic */
+* { font-family: courier !important }
+
 /* container is the overall structure; setting it to only
 set width so that height can be changed by elements */
 #container {
@@ -50,8 +53,4 @@ body {
 }
 #score:hover {
   cursor: default;
-}
-/* setting default font to century gothic */
-* {
-  font-family: Century Gothic;
 }
