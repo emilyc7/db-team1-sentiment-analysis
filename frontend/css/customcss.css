@@ -4,24 +4,14 @@
  *	
  */
 
-body {
-    width: 400px;
-	height: 350px;
-}
-
-.panel-body{
-	height: 200px;
-}
-
-
 .progress-circle {
   background-color: #ddd;
   border-radius: 50%;
   display: inline-block;
-  height: 15rem;
-  margin: 4rem 2rem 0;
+  height: 250px;
+  margin: 25px;
   position: relative;
-  width: 15rem;
+  width: 250px;
 }
 .progress-circle:before {
   align-items: center;
