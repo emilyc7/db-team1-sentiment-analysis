@@ -15,7 +15,6 @@ def get_post_data():
         # app.logger.error("Here's the url: " + url_string)
 
         rv = main(url_string)
-
         return rv
 
 if __name__ == "__main__":

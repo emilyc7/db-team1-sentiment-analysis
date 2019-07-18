@@ -17,7 +17,7 @@
   align-items: center;
   background-color: #fff;
   border-radius: 50%;
-  content: attr(data-progress) '%';
+  content: attr(data-progress);
   display: flex;
   font-size: 3rem;
   justify-content: center;
