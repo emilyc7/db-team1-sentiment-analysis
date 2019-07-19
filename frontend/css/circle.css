@@ -23,20 +23,22 @@
 
 #articlesCircle {
   height: 55px; 
-  width: 55px; 
+  width: 55px;
 }
 
 .column > .progress-circle:before{
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .clearfix{
   overflow: auto;
+  color: #5c5b5b;
 }
 
 .progress-circle:before {
   align-items: center;
-  background-color: #fff;
+  /* background-color: #DBE2ED; */
+  background-color: white;
   border-radius: 50%;
   content: attr(data-progress);
   display: flex;

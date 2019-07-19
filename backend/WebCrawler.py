@@ -1,4 +1,5 @@
-from newsapi import NewsApiClient
+# from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 
 def getInfo(query):
     #Key to access GoogleNews API
