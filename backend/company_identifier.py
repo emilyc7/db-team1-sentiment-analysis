@@ -9,15 +9,20 @@ def entity(x):
     # categorizes each word that is relevant as an entity
     # x = "Federal authorities are investigating whether Deutsche Bank complied with laws meant "
     doc = nlp(x)
-
+    orgs = {}
     # looking at each of the entities found within the text
     for ent in doc.ents:
-        if ent.label_ == 'ORG' and ent.text != 'Financial Times':  # if the entity is labeled as an organization
-            if ent.text == "Deutsche Bank DB" or ent.text == "DB Deutsche Bank" or ent.text == "DB":
-                ent_name = "Deutsche Bank"
-                return ent_name
+        if ent.label_ == 'ORG':  # if the entity is labeled as an organization
             ent_name = ent.text
-            return ent_name
+
+            if ent_name in orgs:
+                orgs[ent_name] += 1
+            else:
+                orgs[ent_name] = 1
+    orgs = sorted(orgs.items())
+    found = orgs[-1]
+    return found[0]
+
 
 
 # maps entity name to corresponding ticker

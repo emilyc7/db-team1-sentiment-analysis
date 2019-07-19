@@ -30,12 +30,12 @@ body {
 }
 .header:hover {
   cursor: pointer;
-  border-bottom: 1px solid #53739F;
+  border-bottom: 3px solid #53739F;
 }
 .header:focus {
   outline: none;
   cursor: default;
-  border-bottom: 1px solid #53739F;
+  border-bottom: 3px solid #53739F;
 }
 /* actual text in the headers */
 .header-text {
