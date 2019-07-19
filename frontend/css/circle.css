@@ -8,10 +8,10 @@
   background-color: #ddd;
   border-radius: 50%;
   display: inline-block;
-  height: 250px;
+  height: 150px;
   margin: 25px;
   position: relative;
-  width: 250px;
+  width: 150px;
 }
 
 #column {
