@@ -13,6 +13,27 @@
   position: relative;
   width: 250px;
 }
+
+#column {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+#articlesCircle {
+  height: 55px; 
+  width: 55px; 
+}
+
+.column > .progress-circle:before{
+  font-size: 2rem;
+}
+
+.clearfix{
+  overflow: auto;
+}
+
 .progress-circle:before {
   align-items: center;
   background-color: #fff;
