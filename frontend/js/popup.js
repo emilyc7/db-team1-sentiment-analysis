@@ -3,8 +3,8 @@
  });
   port.postMessage("starting up");
  port.onMessage.addListener(function(msg) {
-    document.getElementById("add-sent").style.display = "none"
-    document.getElementById("stock-graph").style.display = "none"
+    document.getElementById("add-sent").style.display = "none";
+    document.getElementById("stock-graph").style.display = "none";
     document.getElementById("sentiment-btn").addEventListener('click',
         function(){
             openTab(event, 'main-sent');
@@ -16,11 +16,12 @@
     document.getElementById("article-btn").addEventListener('click',
         function() {
             openTab(event, 'stock-graph');
-        }, false)
+        }, false);
     data = JSON.parse(msg);
     entity_name = data.company_name;
     main_sent = data.main_article_sentiment;
     add_sent = data.other_articles_sentiment;
+    add_titles = data.other_articles_titles;
     document.getElementById("entity-name").innerHTML = entity_name;
     document.getElementById("sent-circle-main").setAttribute("data-progress", main_sent);
     document.getElementById("sent-circle-add0").setAttribute("data-progress", add_sent.one);
@@ -28,6 +29,11 @@
     document.getElementById("sent-circle-add2").setAttribute("data-progress", add_sent.three);
     document.getElementById("sent-circle-add3").setAttribute("data-progress", add_sent.four);
     document.getElementById("sent-circle-add4").setAttribute("data-progress", add_sent.five);
+    document.getElementById("sent-circle-add0-title").innerHTML = add_titles.one;
+    document.getElementById("sent-circle-add1-title").innerHTML = add_titles.two;
+    document.getElementById("sent-circle-add2-title").innerHTML = add_titles.three;
+    document.getElementById("sent-circle-add3-title").innerHTML = add_titles.four;
+    document.getElementById("sent-circle-add4-title").innerHTML = add_titles.five;
  });
 
 function openTab(evt, eltName) {

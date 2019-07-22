@@ -1,5 +1,6 @@
 import spacy
 import pandas as pd
+import operator
 
 # nlp is the library of the english language
 nlp = spacy.load('en_core_web_sm')
@@ -19,8 +20,8 @@ def entity(x):
                 orgs[ent_name] += 1
             else:
                 orgs[ent_name] = 1
-    orgs = sorted(orgs.items())
-    found = orgs[-1]
+    sorted_orgs = sorted(orgs.items(), key=operator.itemgetter(1))
+    found = sorted_orgs[-1]
     return found[0]
 
 

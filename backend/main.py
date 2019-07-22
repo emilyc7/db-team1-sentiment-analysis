@@ -15,24 +15,17 @@ def main(url):
     entity = company_identifier.entity(string)
     print(entity)
     # ticker = company_identifier.find_ticker(entity)
-    other_articles = WebCrawler.getArticles(entity)  # array of article urls
-    other_articles = list()
-    other_articles.append("https://www.reuters.com/article/us-apple-services-research/apples-services-revenue-china-to-power-third-quarter-analyst-idUSKCN1U40SH")
-    other_articles.append("https://www.reuters.com/article/us-netflix-stocks/netflix-sinks-on-subscriber-losses-analysts-still-see-growth-idUSKCN1UD1SL")
-    other_articles.append("https://www.reuters.com/article/us-usa-stocks/wall-street-falls-as-netflix-adds-to-earnings-jitters-idUSKCN1UD1PD")
-    other_articles.append("https://www.theverge.com/2019/7/18/20699037/netflix-earnings-report-q2-streaming-wars-disney-apple-warnermedia-international")
-    other_articles.append("https://www.cnbc.com/2019/07/17/netflix-earnings-q2-2019.html")
+    newsTitles, newsContent, newsSources, other_articles_URL = WebCrawler.getInfo(entity)  # array of article urls
 
-    print(other_articles)
-    StockTest.stockGraph(entity)
+    print(newsTitles)
     # print(string)
     main_article_sentiment = round(evaluate_NN.evaluate_NN(string)*100)  # analyze sentiment of main article
     print(main_article_sentiment)
     # arrays that will hold similar/different articles and their sentiments
     other_article_sentiment = list()
 # 
-    for x in range(len(other_articles)):
-        curr_article = Web2String.url2string(other_articles[x])
+    for x in range(len(other_articles_URL)):
+        curr_article = Web2String.url2string(other_articles_URL[x])
 
         # analyze sentiment of article and put in array
         # other_article_sentiment[x] = round(evaluate_NN.evaluate_NN(curr_article)*100)
@@ -49,7 +42,11 @@ def main(url):
 #     entity = "Deutsche Bank"
 # =============================================================================
     
-    other_articles_dict = {'other_articles': {'one': 'sampleOne.com', 'two': 'sampleTwo.com', 'three': 'sampleThree.com', 'four': 'sampleFour.com', 'five': 'sampleFive.com'}}
+    other_articles_titles_dict = {'other_articles_titles': {'one': newsTitles[0],
+                                                            'two': newsTitles[1],
+                                                            'three': newsTitles[2],
+                                                            'four': newsTitles[3],
+                                                            'five': newsTitles[4]}}
     other_article_sentiment_dict = {'other_articles_sentiment': {'one': other_article_sentiment[0],
                                                                  'two': other_article_sentiment[1],
                                                                  'three': other_article_sentiment[2],
@@ -60,7 +57,7 @@ def main(url):
     
     rv = {}
     
-    rv.update(other_articles_dict)
+    rv.update(other_articles_titles_dict)
     rv.update(other_article_sentiment_dict)
     rv.update(main_article_sentiment_dict)
     rv.update(entity_dict)
