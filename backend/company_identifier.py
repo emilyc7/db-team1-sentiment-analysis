@@ -8,7 +8,6 @@ nlp = spacy.load('en_core_web_sm')
 
 def entity(x):
     # categorizes each word that is relevant as an entity
-    # x = "Federal authorities are investigating whether Deutsche Bank complied with laws meant "
     doc = nlp(x)
     orgs = {}
     # looking at each of the entities found within the text
