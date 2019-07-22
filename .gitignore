@@ -3,4 +3,5 @@ venvMLpython3/
 model2.pt
 .idea
 model5.pt
-__pyc__
+model4.pt
+__pycache__
