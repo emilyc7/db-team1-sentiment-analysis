@@ -9,7 +9,7 @@
     setTimeout(function() {
             displayMainContent();
             displayReady(data);
-        }, 5000);
+        }, 30000);
  });
 
 function openTab(evt, eltName) {
