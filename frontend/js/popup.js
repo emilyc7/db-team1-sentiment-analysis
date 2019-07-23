@@ -68,15 +68,15 @@ function openTab(evt, eltName) {
 function summaryDisplay() {
     if(summary) {
         summary = false;
-        document.getElementById("summary").innerHTML = "This is the article summary";
-        document.getElementById("summaryButton").style.backgroundColor = "#ddd"
-        document.getElementById("summaryButton").style.color = "#5c5b5b"
+        document.getElementById("summary").innerHTML = main_summary;
+        document.getElementById("summaryButton").style.backgroundColor = "#ddd";
+        document.getElementById("summaryButton").style.color = "#5c5b5b";
     }
     else {
         summary = true;
         document.getElementById("summary").innerHTML = "";
-        document.getElementById("summaryButton").style.backgroundColor = "#53739f"
-        document.getElementById("summaryButton").style.color = "white"
+        document.getElementById("summaryButton").style.backgroundColor = "#53739f";
+        document.getElementById("summaryButton").style.color = "white";
     }
 
 }

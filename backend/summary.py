@@ -16,7 +16,6 @@ def summary(url):
     # Combine list items into string.
     article = ' '.join(sentence_list)
 
-    sum = summarize(article, ratio=0.3)
-
-    print(sum)
+    sum = summarize(article, ratio=0.25)
+    return sum
 
