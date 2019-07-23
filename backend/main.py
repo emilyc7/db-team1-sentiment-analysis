@@ -30,7 +30,7 @@ def main(url):
         other_article_sentiment.append(round(evaluate_NN.evaluate_NN(curr_article)*100))
 
     for x in range(len(other_articles_URL)): 
-        a_summary = summary.summary(other_articles_URL)
+        a_summary = summary.summary(other_articles_URL[x])
     
     other_articles_titles_dict = {'other_articles_titles': {'one': newsTitles[0],
                                                             'two': newsTitles[1],
