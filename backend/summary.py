@@ -17,4 +17,6 @@ def summary(url):
 
     summary = summarize(article, ratio=0.3)
 
-    return summary
+    print(summary)
+
+   
