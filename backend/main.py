@@ -15,7 +15,6 @@ def main(url):
     print(string)
     entity = company_identifier.entity(string)
     print(entity)
-    # ticker = company_identifier.find_ticker(entity)
     newsTitles, newsContent, newsSources, other_articles_URL = WebCrawler.getInfo(entity)  # array of article urls
 
     print(newsTitles)
@@ -27,24 +26,11 @@ def main(url):
 # 
     for x in range(len(other_articles_URL)):
         curr_article = Web2String.url2string(other_articles_URL[x])
-
         # analyze sentiment of article and put in array
-        # other_article_sentiment[x] = round(evaluate_NN.evaluate_NN(curr_article)*100)
         other_article_sentiment.append(round(evaluate_NN.evaluate_NN(curr_article)*100))
-    # print(entity)
-#     return main_article_sentiment*10
-# 
 
     for x in range(len(other_articles_URL)): 
         a_summary = summary.summary(other_articles_URL)
-# =============================================================================
-    # return other_articles (list of urls), other_article_sentiment (list of sentiments), main_article_sentiment (original article's sentiment), entity (company name), ticker data (csv)
-# =============================================================================
-#     other_articles = [ "sampleOne.com", "sampleTwo.com", "sampleThree.com", "sampleFour.com", "sampleFive.com" ]
-#     other_article_sentiment = [1, 2, 3, 4, 5]
-#     main_article_sentiment = 10
-#     entity = "Deutsche Bank"
-# =============================================================================
     
     other_articles_titles_dict = {'other_articles_titles': {'one': newsTitles[0],
                                                             'two': newsTitles[1],
@@ -56,7 +42,7 @@ def main(url):
                                                                  'three': other_article_sentiment[2],
                                                                  'four': other_article_sentiment[3],
                                                                  'five': other_article_sentiment[4]}}
-    article_summary = {'article_summary' : { 'one' : a_summary[0],
+    article_summary = {'article_summary': {'one': a_summary[0],
                                             'two': a_summary[1],
                                             'three': a_summary[2],
                                             'four': a_summary[3], 
@@ -75,4 +61,3 @@ def main(url):
     rv_json = json.dumps(rv)
     
     return rv_json
-# main('https://www.reuters.com/article/us-apple-services-research/apples-services-revenue-china-to-power-third-quarter-analyst-idUSKCN1U40SH')
