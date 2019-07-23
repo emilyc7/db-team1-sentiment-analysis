@@ -17,6 +17,9 @@ def main(url):
     print(entity)
     newsTitles, newsContent, newsSources, other_articles_URL = WebCrawler.getInfo(entity)  # array of article urls
 
+    # main URL summary 
+    main_summary = summary.summary(url)
+    
     print(newsTitles)
     # print(string)
     main_article_sentiment = round(evaluate_NN.evaluate_NN(string)*100)  # analyze sentiment of main article
@@ -49,6 +52,7 @@ def main(url):
                                             'five': a_summary[4] }} 
     main_article_sentiment_dict = {'main_article_sentiment': main_article_sentiment}
     entity_dict = {'company_name': entity}
+    main_article_summary = {'main_summary': main_summary}
     
     rv = {}
     
@@ -57,6 +61,7 @@ def main(url):
     rv.update(main_article_sentiment_dict)
     rv.update(entity_dict)
     rv.update(article_summary)
+    rv.update(main_article_summary)
     
     rv_json = json.dumps(rv)
     
