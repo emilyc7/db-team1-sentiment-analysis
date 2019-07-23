@@ -4,7 +4,7 @@
 /* container is the overall structure; setting it to only
 set width so that height can be changed by elements */
 #container {
-  width: 350px;
+  width: 400px;
 }
 /* setting default margin to 0 to fix weird border issue */
 body {
@@ -16,10 +16,9 @@ body {
   box-sizing: border-box;
   background-color: #fdfdfd;
 }
-
 /* enabled transitions and side by side design for header */
 .header {
-  height: 60px;
+  height: 40px;
   width: 33.3%;
   box-sizing: border-box;
   float: left;
@@ -29,20 +28,17 @@ body {
   transition: border-bottom 0.5s;
   text-align: center;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #5c5b5b;
 }
 .header:hover {
   cursor: pointer;
-  border-bottom: 3px solid #53739F;
+  border-bottom: 1px solid #53739F;
 }
 .header:focus {
   outline: none;
   cursor: default;
-  border-bottom: 3px solid #53739F;
-}
-/* actual text in the headers */
-.header-text {
+  border-bottom: 1px solid #000000;
 }
 /* text in the score */
 #score {
