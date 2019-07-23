@@ -63,3 +63,17 @@ body {
   color: #5c5b5b;
   background-color: white;
 }
+
+.button {
+  background-color: #53739f;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #A5C0DC;
+}
