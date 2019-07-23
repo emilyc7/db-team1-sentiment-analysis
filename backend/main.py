@@ -5,6 +5,7 @@ import WebCrawler
 import company_identifier
 import StockTest
 import evaluate_NN
+import summary
 # =============================================================================
 import json
 
@@ -33,6 +34,9 @@ def main(url):
     # print(entity)
 #     return main_article_sentiment*10
 # 
+
+    for x in range(len(other_articles_URL)): 
+        a_summary = summary.summary(other_articles_URL)
 # =============================================================================
     # return other_articles (list of urls), other_article_sentiment (list of sentiments), main_article_sentiment (original article's sentiment), entity (company name), ticker data (csv)
 # =============================================================================
@@ -52,6 +56,11 @@ def main(url):
                                                                  'three': other_article_sentiment[2],
                                                                  'four': other_article_sentiment[3],
                                                                  'five': other_article_sentiment[4]}}
+    article_summary = {'article_summary' : { 'one' : a_summary[0],
+                                            'two': a_summary[1],
+                                            'three': a_summary[2],
+                                            'four': a_summary[3], 
+                                            'five': a_summary[4] }} 
     main_article_sentiment_dict = {'main_article_sentiment': main_article_sentiment}
     entity_dict = {'company_name': entity}
     
@@ -61,6 +70,7 @@ def main(url):
     rv.update(other_article_sentiment_dict)
     rv.update(main_article_sentiment_dict)
     rv.update(entity_dict)
+    rv.update(article_summary)
     
     rv_json = json.dumps(rv)
     
