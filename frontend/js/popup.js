@@ -9,7 +9,7 @@
     setTimeout(function() {
             displayMainContent();
             displayReady(data);
-        }, 30000);
+        }, 5000);
  });
 
 function openTab(evt, eltName) {
@@ -49,19 +49,29 @@ function summaryDisplay() {
 
 }
 
-function addSummaryDisplay() {
-
+function addSummaryDisplay(summ) {
+    document.getElementById("container").style.display = 'none';
+    document.getElementById("loading-screen").style.display = 'none';
+    document.getElementById("summary-container").style.display = 'block';
+    document.getElementById("addSummary").innerHTML = summ;
 }
 
 function displayLoadingScreen() {
     document.getElementById("container").style.display = "none";
+    document.getElementById("summary-container").style.display = "none";
     document.getElementById("loading-screen").style.display = "block";
 }
 
 function displayMainContent() {
-    document.getElementById("container").style.display = "block";
     document.getElementById("loading-screen").style.display = "none";
+    document.getElementById("container").style.display = "block";
 // display the block
+}
+
+function back() {
+    document.getElementById("container").style.display = 'block';
+    document.getElementById("loading-screen").style.display = 'none';
+    document.getElementById("summary-container").style.display = 'none';
 }
 
 function displayReady(data) {
@@ -84,6 +94,30 @@ function displayReady(data) {
     document.getElementById("summaryButton").addEventListener('click',
         function() {
             summaryDisplay();
+        }, false);
+    document.getElementById("add1-button").addEventListener('click',
+        function() {
+            addSummaryDisplay(add_summary.one);
+        }, false);
+    document.getElementById("add2-button").addEventListener('click',
+        function() {
+            addSummaryDisplay(add_summary.two);
+        }, false);
+    document.getElementById("add3-button").addEventListener('click',
+        function() {
+            addSummaryDisplay(add_summary.three);
+        }, false);
+    document.getElementById("add4-button").addEventListener('click',
+        function() {
+            addSummaryDisplay(add_summary.four);
+        }, false);
+    document.getElementById("add5-button").addEventListener('click',
+        function() {
+            addSummaryDisplay(add_summary.five);
+        }, false);
+     document.getElementById("back-btn").addEventListener('click',
+        function() {
+            back();
         }, false);
     entity_name = data.company_name;
     main_sent = data.main_article_sentiment;
