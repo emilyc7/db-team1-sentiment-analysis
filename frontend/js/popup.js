@@ -1,6 +1,7 @@
  var port = chrome.extension.connect({
       name: "popup and background"
  });
+ var summary = true;
   port.postMessage("starting up");
  port.onMessage.addListener(function(msg) {
     document.getElementById("add-sent").style.display = "none";
@@ -16,6 +17,10 @@
     document.getElementById("article-btn").addEventListener('click',
         function() {
             openTab(event, 'stock-graph');
+        }, false);
+    document.getElementById("summaryButton").addEventListener('click',
+        function() {
+            summaryDisplay();
         }, false);
     data = JSON.parse(msg);
     entity_name = data.company_name;
@@ -56,4 +61,16 @@ function openTab(evt, eltName) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(eltName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function summaryDisplay() {
+    if(summary) {
+        summary = false;
+        document.getElementById("summary").innerHTML = "This is the article summary";
+    }
+    else {
+        summary = true;
+        document.getElementById("summary").innerHTML = "";
+    }
+
 }
