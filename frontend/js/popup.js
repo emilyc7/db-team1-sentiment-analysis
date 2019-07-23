@@ -27,6 +27,8 @@
     main_sent = data.main_article_sentiment;
     add_sent = data.other_articles_sentiment;
     add_titles = data.other_articles_titles;
+    add_summary = data.article_summary;
+    main_summary = data.main_summary;
 
     document.getElementById("entity-name").innerHTML = entity_name;
     document.getElementById("sent-circle-main").setAttribute("data-progress", main_sent);
