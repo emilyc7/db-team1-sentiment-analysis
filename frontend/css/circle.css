@@ -23,8 +23,8 @@
 
 #sent-circle-add0, #sent-circle-add1, #sent-circle-add2, #sent-circle-add3, #sent-circle-add4, 
 #sent-circle-add5, #sent-circle-add6, #sent-circle-add7, #sent-circle-add8, #sent-circle-add9 {
-  height: 55px; 
-  width: 55px;
+  height: 70px;
+  width: 70px;
 }
 
 .column > .progress-circle:before{

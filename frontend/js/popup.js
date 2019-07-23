@@ -80,3 +80,7 @@ function summaryDisplay() {
     }
 
 }
+
+function addSummaryDisplay() {
+
+}

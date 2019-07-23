@@ -58,7 +58,7 @@ body {
 .tabcontent {
   text-align: center;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   /* color: black; */
   color: #5c5b5b;
   background-color: white;
@@ -66,6 +66,7 @@ body {
 
 .button {
   background-color: #53739f;
+  border-radius: 25px;
   border: none;
   color: white;
   padding: 8px 16px;
@@ -76,4 +77,18 @@ body {
 
 .button:hover {
   background-color: #A5C0DC;
+}
+
+.addbutton {
+  background-color: #53739f;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+  margin-left:65px !important;
 }
