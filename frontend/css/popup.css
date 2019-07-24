@@ -10,6 +10,13 @@ set width so that height can be changed by elements */
 #summary-container {
   width: 350px;
 }
+
+.summary-text {
+  font-family: Helvetica;
+  padding: 15px;
+  font-size: 14px;
+  color: #5c5b5b;
+}
 /* setting default margin to 0 to fix weird border issue */
 body {
   margin: 0px;
