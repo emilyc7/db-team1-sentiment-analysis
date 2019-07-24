@@ -6,6 +6,10 @@ set width so that height can be changed by elements */
 #container {
   width: 350px;
 }
+
+#summary-container {
+  width: 350px;
+}
 /* setting default margin to 0 to fix weird border issue */
 body {
   margin: 0px;

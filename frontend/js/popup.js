@@ -51,7 +51,7 @@ function summaryDisplay() {
 
 function addSummaryDisplay(summ) {
     document.getElementById("container").style.display = 'none';
-    document.getElementById("loading-screen").style.display = 'none';
+    document.getElementById("loading-container").style.display = 'none';
     document.getElementById("summary-container").style.display = 'block';
     document.getElementById("addSummary").innerHTML = summ;
 }
@@ -59,24 +59,24 @@ function addSummaryDisplay(summ) {
 function displayLoadingScreen() {
     document.getElementById("container").style.display = "none";
     document.getElementById("summary-container").style.display = "none";
-    document.getElementById("loading-screen").style.display = "block";
+//    document.getElementById("loading-container").style.display = "block";
 }
 
 function displayMainContent() {
-    document.getElementById("loading-screen").style.display = "none";
+    document.getElementById("loading-container").style.display = "none";
     document.getElementById("container").style.display = "block";
 // display the block
 }
 
 function back() {
     document.getElementById("container").style.display = 'block';
-    document.getElementById("loading-screen").style.display = 'none';
+    document.getElementById("loading-container").style.display = 'none';
     document.getElementById("summary-container").style.display = 'none';
 }
 
 function displayReady(data) {
     document.getElementById("container").style.display = "block";
-    document.getElementById("loading-screen").style.display = "none";
+    document.getElementById("loading-container").style.display = "none";
     document.getElementById("add-sent").style.display = "none";
     document.getElementById("stock-graph").style.display = "none";
     document.getElementById("sentiment-btn").addEventListener('click',
