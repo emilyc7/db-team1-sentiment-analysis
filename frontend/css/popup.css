@@ -94,7 +94,6 @@ body {
   cursor: pointer;
   height: 30px;
   width: 80px;
-  margin-left:65px !important;
 }
 
 .backButton {
@@ -108,4 +107,13 @@ body {
   cursor: pointer;
   height: 30px;
   width: 80px;
+}
+
+hr {
+  width: 100%;
+  border: .5px solid gray;
+}
+
+br {
+  line-height: 1px;
 }
