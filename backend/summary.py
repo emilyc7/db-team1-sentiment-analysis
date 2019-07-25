@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from gensim.summarization import summarize
 
+
 def summary(url):
     page = requests.get(url).text
 
@@ -15,6 +16,9 @@ def summary(url):
     # Combine list items into string.
     article = ' '.join(sentence_list)
 
-    summary = summarize(article, ratio=0.3)
+    if len(article) < 60:
+        return article
 
-    return summary
+    sum = summarize(article, ratio=0.3, word_count=60)
+    return sum
+

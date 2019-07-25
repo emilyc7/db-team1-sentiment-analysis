@@ -5,3 +5,4 @@ model2.pt
 model5.pt
 model4.pt
 __pycache__
+evaluate_NN.py

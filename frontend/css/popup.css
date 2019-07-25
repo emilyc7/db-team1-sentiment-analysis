@@ -6,6 +6,17 @@ set width so that height can be changed by elements */
 #container {
   width: 400px;
 }
+
+#summary-container {
+  width: 350px;
+}
+
+.summary-text {
+  font-family: Helvetica;
+  padding: 15px;
+  font-size: 14px;
+  color: #5c5b5b;
+}
 /* setting default margin to 0 to fix weird border issue */
 body {
   margin: 0px;
@@ -54,7 +65,7 @@ body {
 .tabcontent {
   text-align: center;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   /* color: black; */
   color: #5c5b5b;
   background-color: white;
@@ -62,6 +73,7 @@ body {
 
 .button {
   background-color: #53739f;
+  border-radius: 25px;
   border: none;
   color: white;
   padding: 8px 16px;
@@ -72,4 +84,39 @@ body {
 
 .button:hover {
   background-color: #A5C0DC;
+}
+
+.addbutton {
+  background-color: #53739f;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+}
+
+.backButton {
+  background-color: #53739f;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+}
+
+hr {
+  width: 100%;
+  border: .5px solid gray;
+}
+
+br {
+  line-height: 1px;
 }

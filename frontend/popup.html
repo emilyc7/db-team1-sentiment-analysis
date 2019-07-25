@@ -5,12 +5,16 @@
     <meta name="description" content="A sentiment analyser complemented with stock information.">
     <meta name="author" content="DB Team 1">
     <script src="js/popup.js"></script>
+    <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/circle.css">
     <link rel="stylesheet" href="css/popup.css">
 </head>
 <body>
 
 <!-- Primary Page Layout -->
+
+<div id="loading-container"><div class="loading-screen-header">Our algorithm is at work...</div><div></div><div id="loading-screen" class="lds-ripple"><div></div><div></div></div></div>
+
 <div id="container">
     <button id="sentiment-btn" class="header">Sentiment</button>
     <button id="stock-btn" class="header">Other Articles</button>
@@ -22,18 +26,26 @@
         <h1 id="entity-name">Hello world!</h1>
         <div class="progress-circle" data-progress="45" id="sent-circle-main"></div> <!-- this line needs to change based on the sentiment -->
         <div></div>
-        <button class="button" id="summaryButton" onclick="summaryDisplay()">Article Summary</button>
+        <button class="button" id="summaryButton">Article Summary</button>
         <p id="summary"></p>
     </div>
 
     <div id="add-sent" class="tabcontent">
         <h3>What others think</h3>
-        <div class="column" id="column"> 
-            <div class="progress-circle" data-progress="10" id="sent-circle-add0"></div> <p id="sent-circle-add0-title"> article 0 </p> <!-- this line needs to change based on the sentiment -->
-            <div class="progress-circle" data-progress="20" id="sent-circle-add1"></div> <p id="sent-circle-add1-title"> article 1 </p> <!-- this line needs to change based on the sentiment -->
-            <div class="progress-circle" data-progress="30" id="sent-circle-add2"></div> <p id="sent-circle-add2-title"> article 2 </p> <!-- this line needs to change based on the sentiment -->
-            <div class="progress-circle" data-progress="40" id="sent-circle-add3"></div> <p id="sent-circle-add3-title"> article 3 </p> <!-- this line needs to change based on the sentiment -->
-            <div class="progress-circle" data-progress="50" id="sent-circle-add4"></div> <p id="sent-circle-add4-title"> article 4 </p> <!-- this line needs to change based on the sentiment -->
+        <div class="column" id="column">
+            <div class="progress-circle" data-progress="60" id="sent-circle-add0"></div><p id="sent-circle-add0-title"> This is a reasonable article title </p><p><br></p><button class="addbutton" id="add1-button">Summary</button>
+            <hr>
+            <hr>
+            <div class="progress-circle" data-progress="70" id="sent-circle-add1"></div> <p id="sent-circle-add1-title"> article 1 </p><div></div><button class="addbutton" id="add2-button">Summary</button>
+            <hr>
+            <hr>
+            <div class="progress-circle" data-progress="80" id="sent-circle-add2"></div> <p id="sent-circle-add2-title"> article 2 </p><div></div><button class="addbutton" id="add3-button">Summary</button>
+            <hr>
+            <hr>
+            <div class="progress-circle" data-progress="90" id="sent-circle-add3"></div> <p id="sent-circle-add3-title"> article 3 </p><div></div><button class="addbutton" id="add4-button">Summary</button>
+            <hr>
+            <hr>
+            <div class="progress-circle" data-progress="100" id="sent-circle-add4"></div> <p id="sent-circle-add4-title"> article 4 </p><div></div><button class="addbutton" id="add5-button">Summary</button>
         </div>
     </div>
 
@@ -42,6 +54,12 @@
         <p>Here goes the stock graph.</p>
     </div>
 </div>
+
+<div id="summary-container">
+    <button id="back-btn" class="backButton">< Back</button>
+    <div class="summary-text" id="addSummary"></div>
+</div>
+
 <!-- End Document -->
 </body>
 </html>
