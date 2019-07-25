@@ -13,6 +13,10 @@ def summary(url):
 
     sentence_list = [sentence for sentence in p_tags_text if not '\n' in sentence]
     sentence_list = [sentence for sentence in sentence_list if '.' in sentence]
+    sentence_list = [sentence for sentence in p_tags_text if not '-' in sentence]
+    sentence_list = [sentence for sentence in p_tags_text if not '/' in sentence]
+    sentence_list = [sentence for sentence in p_tags_text if not '=' in sentence]
+    
     # Combine list items into string.
     article = ' '.join(sentence_list)
 
