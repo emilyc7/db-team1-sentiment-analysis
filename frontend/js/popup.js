@@ -85,46 +85,46 @@ function displayReady(data) {
   document.getElementById("add-sent").style.display = "none";
   document.getElementById("stock-graph").style.display = "none";
   document.getElementById("sentiment-btn").addEventListener('click',
-      function(){
-          openTab(event, 'main-sent');
-      }, false)
+  function(){
+    openTab(event, 'main-sent');
+  }, false)
   document.getElementById("stock-btn").addEventListener('click',
-      function() {
-          openTab(event, 'add-sent');
-      }, false)
+  function() {
+    openTab(event, 'add-sent');
+  }, false)
   document.getElementById("article-btn").addEventListener('click',
-      function() {
-          openTab(event, 'stock-graph');
-          displayGraph();
-      }, false);
+  function() {
+    openTab(event, 'stock-graph');
+    displayGraph();
+  }, false);
   document.getElementById("summaryButton").addEventListener('click',
-      function() {
-          summaryDisplay();
-      }, false);
+  function() {
+    summaryDisplay();
+  }, false);
   document.getElementById("add1-button").addEventListener('click',
-      function() {
-          addSummaryDisplay(add_summary.one);
-      }, false);
+  function() {
+    addSummaryDisplay(add_summary.one);
+  }, false);
   document.getElementById("add2-button").addEventListener('click',
-      function() {
-          addSummaryDisplay(add_summary.two);
-      }, false);
+  function() {
+    addSummaryDisplay(add_summary.two);
+  }, false);
   document.getElementById("add3-button").addEventListener('click',
-      function() {
-          addSummaryDisplay(add_summary.three);
-      }, false);
+  function() {
+    addSummaryDisplay(add_summary.three);
+  }, false);
   document.getElementById("add4-button").addEventListener('click',
-      function() {
-          addSummaryDisplay(add_summary.four);
-      }, false);
+  function() {
+    addSummaryDisplay(add_summary.four);
+  }, false);
   document.getElementById("add5-button").addEventListener('click',
-      function() {
-          addSummaryDisplay(add_summary.five);
-      }, false);
-   document.getElementById("back-btn").addEventListener('click',
-      function() {
-          back();
-      }, false);
+  function() {
+    addSummaryDisplay(add_summary.five);
+  }, false);
+  document.getElementById("back-btn").addEventListener('click',
+  function() {
+    back();
+  }, false);
   entity_name = data.company_name;
   main_sent = data.main_article_sentiment;
   add_sent = data.other_articles_sentiment;
@@ -146,23 +146,32 @@ function displayReady(data) {
 }
 
 function displayGraph() {
-    // Hard coded data
-    var date = ['2019-01-02','2019-01-03','2019-01-04','2019-01-07','2019-01-08','2019-01-09','2019-01-10']
-    var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
-    //
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: date,
-            datasets: [ {
-                data: price,
-                label: "Price(USD)",
-                borderColor: "#008000",
-                backgroundColor: "#F0FFF0",
-                fill: true
-                }
-            ]
-        }
-    });
+  // Hard coded data
+  var date = ['2019-01-02','2019-01-03','2019-01-04','2019-01-07','2019-01-08','2019-01-09','2019-01-10']
+  var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
+  var last = price[price.length - 1];
+  var before = price[price.length-2];
+  // Builds Chart
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: date,
+      datasets: [ {
+        data: price,
+        label: "Price(USD)",
+        lineTension: 0,
+        borderColor: "#008000",
+        backgroundColor: "#F0FFF0",
+        fill: true
+      }
+    ]
+  }
+});
+// To determine color of graph based on EOD Data
+if (last < before) {
+  myChart.data.datasets[0].borderColor = "#FF0000";
+  myChart.data.datasets[0].backgroundColor = "#FFE4E1";
+}
+myChart.update();
 }
