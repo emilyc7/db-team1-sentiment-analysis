@@ -20,6 +20,7 @@ chrome.runtime.onMessage.addListener(
       	}
 
       	// Sends request
+        rv = 0;
       	xmlr.send(JSON.stringify({ "url" : url }));
     }
   }
@@ -29,7 +30,6 @@ chrome.runtime.onMessage.addListener(
       port.onMessage.addListener(function(msg) { // received connection from popup.js
            if(msg == "starting up")  {
               port.postMessage(rv);
-              if(rv != 0) rv = 0;
            }
       });
  })
