@@ -6,6 +6,7 @@ import company_identifier
 import StockTest
 import evaluate_NN
 import summary
+import StockToPython
 # =============================================================================
 import json
 
@@ -36,7 +37,9 @@ def main(url):
     a_summary = list()
     for x in range(len(other_articles_URL)): 
         a_summary.append(summary.summary(other_articles_URL[x]))
-    
+
+    stock_dates, stock_data = StockToPython.stock_to_JSON(entity)
+
     other_articles_titles_dict = {'other_articles_titles': {'one':      newsTitles[0],
                                                             'two':      newsTitles[1],
                                                             'three':    newsTitles[2],
@@ -55,6 +58,8 @@ def main(url):
     main_article_sentiment_dict = {'main_article_sentiment': main_article_sentiment}
     entity_dict = {'company_name': entity}
     main_article_summary = {'main_summary': main_summary}
+    stock_dates_dict = {'stock_dates': stock_dates}
+    stock_data_dict = {'stock_data': stock_data}
     
     rv = {}
     
@@ -64,9 +69,11 @@ def main(url):
     rv.update(entity_dict)
     rv.update(article_summary)
     rv.update(main_article_summary)
+    rv.update(stock_dates_dict)
+    rv.update(stock_data_dict)
     
     rv_json = json.dumps(rv)
-    
+    print(rv_json)
     return rv_json
 
-#main('https://www.cnbc.com/2019/07/24/analyst-calls-of-the-day-apple-micron-amazon-more.html')
+main('https://www.cnet.com/news/apples-q3-earnings-are-all-about-the-iphone-11-hints/')

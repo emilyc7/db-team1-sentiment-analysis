@@ -147,16 +147,19 @@ function displayReady(data) {
 
 function displayGraph() {
   // Hard coded data
-  var date = ['2019-01-02','2019-01-03','2019-01-04','2019-01-07','2019-01-08','2019-01-09','2019-01-10']
-  var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
+//  var date = ['2019-01-02','2019-01-03','2019-01-04','2019-01-07','2019-01-08','2019-01-09','2019-01-10']
+//  var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
+  var dates = data.stock_dates;
+  var price = data.stock_data;
+  console.log(price);
   var last = price[price.length - 1];
-  var before = price[price.length-2];
+  var before = price[price.length - 2];
   // Builds Chart
   var ctx = document.getElementById("myChart");
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: date,
+      labels: dates,
       datasets: [ {
         data: price,
         label: "Price(USD)",
