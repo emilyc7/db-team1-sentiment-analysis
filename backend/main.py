@@ -68,3 +68,5 @@ def main(url):
     rv_json = json.dumps(rv)
     
     return rv_json
+
+#main('https://www.cnbc.com/2019/07/24/analyst-calls-of-the-day-apple-micron-amazon-more.html')
