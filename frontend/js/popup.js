@@ -6,14 +6,14 @@ var data;
 port.postMessage("starting up");
 port.onMessage.addListener(function(msg) {
   data = JSON.parse(msg);
-  if (msg == null) {
-    displayLoadingScreen();
-  } else {
+//  if (msg == null) {
+//    displayLoadingScreen();
+//  } else {
     //setTimeout(function() {
     displayMainContent();
     displayReady(data);
     //}, 30000);
-  }
+//  }
 });
 
 function openTab(evt, eltName) {
