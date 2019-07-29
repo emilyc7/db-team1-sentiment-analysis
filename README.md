@@ -1,1 +1,2 @@
-# db-team1-sentiment-analysis
+# ProveMeWrong Pineapple
+# The best sentiment analysis under the sea
