@@ -1,10 +1,10 @@
-var rv;
+var rv = 0;
 var hasReceived = false;
 
 chrome.runtime.onMessage.addListener(
   (request, sender, senderResponse) => {
     if(request.message == 'url') {
-      
+
       	var xmlr = new XMLHttpRequest();
         var url = request.url;
         console.log(url)
@@ -27,6 +27,9 @@ chrome.runtime.onMessage.addListener(
 
  chrome.extension.onConnect.addListener(function(port) {
       port.onMessage.addListener(function(msg) { // received connection from popup.js
-           if(msg == "starting up") port.postMessage(rv);
+           if(msg == "starting up")  {
+              port.postMessage(rv);
+              if(rv != 0) rv = 0;
+           }
       });
  })
