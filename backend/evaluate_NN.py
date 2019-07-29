@@ -8,7 +8,7 @@ from nltk.corpus import stopwords
 from string import punctuation
 
 
-def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=500):
+def evaluate_NN(all_text, dictFileName="/Users/emilycroxall/Documents/sentiment-analysis/backend/dictionaryIMDB.json", seqLen=500):
     train_on_gpu = torch.cuda.is_available()
     device = torch.device('cuda' if train_on_gpu else 'cpu')
     vocabToInt = json.load(open(dictFileName, 'r'))  # load the dictionary
@@ -33,9 +33,9 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=500):
     device = torch.device(device)
     net = create_NN(len(vocabToInt)+1)
     if train_on_gpu:
-        net.load_state_dict(torch.load("model5.pt"))
+        net.load_state_dict(torch.load("/Users/emilycroxall/Documents/sentiment-analysis/backend/model5.pt"))
     else:
-        net.load_state_dict(torch.load("model5.pt", map_location={'cuda:0': 'cpu'}))
+        net.load_state_dict(torch.load("/Users/emilycroxall/Documents/sentiment-analysis/backend/model5.pt", map_location={'cuda:0': 'cpu'}))
     # print(net)
     if train_on_gpu:
         net.cuda(device)

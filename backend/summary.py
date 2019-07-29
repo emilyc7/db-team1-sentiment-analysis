@@ -6,7 +6,7 @@ from gensim.summarization import summarize
 def summary(url):
     page = requests.get(url).text
 
-    soup = BeautifulSoup(page)
+    soup = BeautifulSoup(page, features="lxml")
     
     p_tags = soup.find_all('p') 
     p_tags_text = [tag.get_text().strip() for tag in p_tags]
