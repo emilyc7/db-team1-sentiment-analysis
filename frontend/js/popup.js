@@ -149,7 +149,9 @@ function displayGraph() {
     // Hard coded data
     var date = ['2019-01-02','2019-01-03','2019-01-04','2019-01-07','2019-01-08','2019-01-09','2019-01-10']
     var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
-    //
+    var last = price[price.length - 1];
+    var before = price[price.length-2];
+    // Builds Chart
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -158,6 +160,7 @@ function displayGraph() {
             datasets: [ {
                 data: price,
                 label: "Price(USD)",
+                lineTensionL 0,
                 borderColor: "#008000",
                 backgroundColor: "#F0FFF0",
                 fill: true
@@ -165,4 +168,10 @@ function displayGraph() {
             ]
         }
     });
+    // To determine color of graph based on EOD Data
+    if (last < before) {
+	myChart.data.datasets[0].borderColor = "#FF0000";
+	myChart.data.datasets[0].backgroundColor = "#FFE4E1";
+}
+    myChart.update();
 }
