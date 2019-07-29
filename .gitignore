@@ -4,5 +4,5 @@ model2.pt
 .idea
 model5.pt
 model4.pt
-__pycache__
-evaluate_NN.py
+backend/__pycache__
+backend/evaluate_NN.py

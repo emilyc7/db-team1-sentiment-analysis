@@ -44,6 +44,7 @@ def evaluate_NN(all_text, dictFileName="dictionaryIMDB.json", seqLen=500):
     net.eval()
     h = net.init_hidden(1, train_on_gpu)
     h = tuple([each.data for each in h])
+    inputs = inputs.to(torch.int64)
     output = net(inputs, h)
     output = output[0]
     if train_on_gpu:

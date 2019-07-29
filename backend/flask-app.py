@@ -9,7 +9,7 @@ def get_post_data():
      # app.logger.error("got JSON, next is getting url from JSON")
 
     url_string = data['url']
-    # app.logger.error("Here's the url: " + url_string)
+    app.logger.error("Here's the url: " + url_string)
  
     rv = main(url_string)
     return rv
