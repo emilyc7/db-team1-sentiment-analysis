@@ -5,4 +5,4 @@ model2.pt
 model5.pt
 model4.pt
 backend/__pycache__
-backend/evaluate_NN.py
+evaluate_NN.py
