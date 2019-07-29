@@ -5,12 +5,15 @@ var summary = true;
 var data;
 port.postMessage("starting up");
 port.onMessage.addListener(function(msg) {
-  //displayLoadingScreen();
   data = JSON.parse(msg);
-  //setTimeout(function() {
+  if (msg == null) {
+    displayLoadingScreen();
+  } else {
+    //setTimeout(function() {
     displayMainContent();
     displayReady(data);
-  //}, 30000);
+    //}, 30000);
+  }
 });
 
 function openTab(evt, eltName) {
