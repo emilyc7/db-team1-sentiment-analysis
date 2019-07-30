@@ -5,8 +5,6 @@ from gensim.summarization import summarize
 
 def summary(url):
     page = requests.get(url).text
-    if 'ft.com' in url:
-        return "no summary"
 
     soup = BeautifulSoup(page, features="lxml")
     

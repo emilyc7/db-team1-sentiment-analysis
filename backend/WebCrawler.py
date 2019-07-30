@@ -10,14 +10,17 @@ def getInfo(query):
     # query = urllib.parse.quote_plus(query)
     newsapi = NewsApiClient(api_key='edf0afe93d6644d198d8539e640134c9')
     print(query)
+
     headlines = newsapi.get_top_headlines(q=query, language='en')
     print(headlines)
     # headlines = newsapi.get_top_headlines(q=query, language='en')
+
     newsTitles = list()
     newsContent = list()
     newsSources = list()
     newsURL = list()
     print("number of articles found = " + str(len(headlines['articles'])))
+
     #Adds all relevant information to separate lists
     numberOfArticles = len(headlines['articles'])
     if numberOfArticles > 5:
@@ -31,7 +34,7 @@ def getInfo(query):
         today = datetime.datetime.today()
         start_day = today - datetime.timedelta(days=1)
         headlines_all = newsapi.get_everything(q=query, from_param=str(start_day), to=str(today), language='en',
-                                               sort_by='relevancy')
+                                               sort_by='relevancy', exclude_domains='ft.com, reuters.com')
         for x in range(5 - len(newsTitles)):
             newsTitles.append(headlines_all['articles'][x]['title'])
             newsContent.append(headlines_all['articles'][x]['content'])
