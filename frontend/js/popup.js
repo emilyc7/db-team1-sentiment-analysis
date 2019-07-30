@@ -151,25 +151,46 @@ function displayGraph() {
 //  var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
   var dates = data.stock_dates;
   var price = data.stock_data;
+  var comp = entity_name;
   console.log(price);
   var last = price[price.length - 1];
-  var before = price[price.length - 2];
+  var before = price[0];
   // Builds Chart
   var ctx = document.getElementById("myChart");
+  var options = {
+         scales: {
+            xAxes: [{
+                afterTickToLabelConversion: function(data){
+
+
+                    var xLabels = data.ticks;
+
+                    xLabels.forEach(function (labels, i) {
+                        if (i % 2 == 1){
+                            xLabels[i] = '';
+                        }
+                    });
+                }
+            }]
+        }
+}
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: dates,
       datasets: [ {
         data: price,
-        label: "Price(USD)",
+        label: comp,
         lineTension: 0,
         borderColor: "#008000",
         backgroundColor: "#F0FFF0",
+        pointBackgroundColor: "transparent",
+        pointBorderColor: "transparent",
         fill: true
       }
     ]
-  }
+  },
+   options: options
 });
 // To determine color of graph based on EOD Data
 if (last < before) {
