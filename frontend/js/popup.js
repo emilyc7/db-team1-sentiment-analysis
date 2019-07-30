@@ -129,6 +129,8 @@ function displayReady(data) {
   main_sent = data.main_article_sentiment;
   add_sent = data.other_articles_sentiment;
   add_titles = data.other_articles_titles;
+  add_sources = data.other_articles_sources;
+  add_links = data.other_articles_links;
   add_summary = data.article_summary;
   main_summary = data.main_summary;
   document.getElementById("entity-name").innerHTML = entity_name;
@@ -143,6 +145,16 @@ function displayReady(data) {
   document.getElementById("sent-circle-add2-title").innerHTML = add_titles.three;
   document.getElementById("sent-circle-add3-title").innerHTML = add_titles.four;
   document.getElementById("sent-circle-add4-title").innerHTML = add_titles.five;
+  document.getElementById("sent-circle-add0-source").innerHTML = add_sources.one;
+  document.getElementById("sent-circle-add1-source").innerHTML = add_sources.two;
+  document.getElementById("sent-circle-add2-source").innerHTML = add_sources.three;
+  document.getElementById("sent-circle-add3-source").innerHTML = add_sources.four;
+  document.getElementById("sent-circle-add4-source").innerHTML = add_sources.five;
+  document.getElementById("sent-circle-add0-source").setAttribute("href", add_links.one)
+  document.getElementById("sent-circle-add1-source").setAttribute("href", add_links.two)
+  document.getElementById("sent-circle-add2-source").setAttribute("href", add_links.three)
+  document.getElementById("sent-circle-add3-source").setAttribute("href", add_links.four)
+  document.getElementById("sent-circle-add4-source").setAttribute("href", add_links.five)
 }
 
 function displayGraph() {
@@ -151,46 +163,25 @@ function displayGraph() {
 //  var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
   var dates = data.stock_dates;
   var price = data.stock_data;
-  var comp = entity_name;
   console.log(price);
   var last = price[price.length - 1];
-  var before = price[0];
+  var before = price[price.length - 2];
   // Builds Chart
   var ctx = document.getElementById("myChart");
-  var options = {
-         scales: {
-            xAxes: [{
-                afterTickToLabelConversion: function(data){
-
-
-                    var xLabels = data.ticks;
-
-                    xLabels.forEach(function (labels, i) {
-                        if (i % 2 == 1){
-                            xLabels[i] = '';
-                        }
-                    });
-                }
-            }]
-        }
-}
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: dates,
       datasets: [ {
         data: price,
-        label: comp,
+        label: "Price(USD)",
         lineTension: 0,
         borderColor: "#008000",
         backgroundColor: "#F0FFF0",
-        pointBackgroundColor: "transparent",
-        pointBorderColor: "transparent",
         fill: true
       }
     ]
-  },
-   options: options
+  }
 });
 // To determine color of graph based on EOD Data
 if (last < before) {

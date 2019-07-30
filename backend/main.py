@@ -1,5 +1,4 @@
 # This function will handle all calls and passing of information
-# =============================================================================
 import Web2String
 import WebCrawler
 import company_identifier
@@ -7,7 +6,6 @@ import StockTest
 import evaluate_NN
 import summary
 import StockToPython
-# =============================================================================
 import json
 
 
@@ -45,11 +43,21 @@ def main(url):
                                                             'three':    newsTitles[2],
                                                             'four':     newsTitles[3],
                                                             'five':     newsTitles[4]}}
-    other_article_sentiment_dict = {'other_articles_sentiment': {'one':     other_article_sentiment[0],
-                                                                 'two':     other_article_sentiment[1],
-                                                                 'three':   other_article_sentiment[2],
-                                                                 'four':    other_article_sentiment[3],
-                                                                 'five':    other_article_sentiment[4]}}
+    other_articles_sources_dict = {'other_articles_sources': {'one':    newsSources[0],
+                                                              'two':    newsSources[1],
+                                                              'three':  newsSources[2],
+                                                              'four':   newsSources[3],
+                                                              'five':   newsSources[4]}}
+    other_articles_sentiment_dict = {'other_articles_sentiment': {'one':     other_article_sentiment[0],
+                                                                  'two':     other_article_sentiment[1],
+                                                                  'three':   other_article_sentiment[2],
+                                                                  'four':    other_article_sentiment[3],
+                                                                  'five':    other_article_sentiment[4]}}
+    other_articles_links_dict = {'other_articles_links': {'one':    other_articles_URL[0],
+                                                          'two':    other_articles_URL[1],
+                                                          'three':  other_articles_URL[2],
+                                                          'four':   other_articles_URL[3],
+                                                          'five':   other_articles_URL[4]}}
     article_summary = {'article_summary': {'one':   a_summary[0],
                                            'two':   a_summary[1],
                                            'three': a_summary[2],
@@ -60,20 +68,22 @@ def main(url):
     main_article_summary = {'main_summary': main_summary}
     stock_dates_dict = {'stock_dates': stock_dates}
     stock_data_dict = {'stock_data': stock_data}
-    
+
     rv = {}
-    
+
     rv.update(other_articles_titles_dict)
-    rv.update(other_article_sentiment_dict)
+    rv.update(other_articles_sources_dict)
+    rv.update(other_articles_sentiment_dict)
+    rv.update(other_articles_links_dict)
     rv.update(main_article_sentiment_dict)
     rv.update(entity_dict)
     rv.update(article_summary)
     rv.update(main_article_summary)
     rv.update(stock_dates_dict)
     rv.update(stock_data_dict)
-    
+
     rv_json = json.dumps(rv)
     print(rv_json)
     return rv_json
 
-main('https://www.cnet.com/news/apples-q3-earnings-are-all-about-the-iphone-11-hints/')
+# main('https://www.cnet.com/news/apples-q3-earnings-are-all-about-the-iphone-11-hints/')
