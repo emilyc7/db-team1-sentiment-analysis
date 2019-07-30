@@ -13,9 +13,9 @@ def summary(url):
 
     sentence_list = [sentence for sentence in p_tags_text if not '\n' in sentence]
     sentence_list = [sentence for sentence in sentence_list if '.' in sentence]
-    sentence_list = [sentence for sentence in p_tags_text if not '-' in sentence]
-    sentence_list = [sentence for sentence in p_tags_text if not '/' in sentence]
-    sentence_list = [sentence for sentence in p_tags_text if not '=' in sentence]
+    sentence_list = [sentence for sentence in sentence_list if not '-' in sentence]
+    sentence_list = [sentence for sentence in sentence_list if not '/' in sentence]
+    sentence_list = [sentence for sentence in sentence_list if not '=' in sentence]
     
     # Combine list items into string.
     article = ' '.join(sentence_list)
@@ -24,5 +24,9 @@ def summary(url):
         return article
 
     sum = summarize(article, ratio=0.3, word_count=60)
-    return sum
+
+    if len(sum) == 0: 
+        return "no summary"
+    else:   
+        return sum
 
