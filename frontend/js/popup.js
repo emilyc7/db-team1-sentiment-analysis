@@ -60,6 +60,10 @@ function addSummaryDisplay(summ) {
   document.getElementById("addSummary").innerHTML = summ;
 }
 
+function linkButtonClick(link) {
+    chrome.tabs.create({ url: link });
+}
+
 function displayLoadingScreen() {
   document.getElementById("container").style.display = "none";
   document.getElementById("summary-container").style.display = "none";
@@ -125,6 +129,28 @@ function displayReady(data) {
   function() {
     back();
   }, false);
+
+  document.getElementById("sent-circle-add0-source").addEventListener('click',
+  function() {
+    linkButtonClick(add_links.one);
+  }, false);
+  document.getElementById("sent-circle-add1-source").addEventListener('click',
+  function() {
+    linkButtonClick(add_links.two);
+  }, false);
+  document.getElementById("sent-circle-add2-source").addEventListener('click',
+  function() {
+    linkButtonClick(add_links.three);
+  }, false);
+  document.getElementById("sent-circle-add3-source").addEventListener('click',
+  function() {
+    linkButtonClick(add_links.four);
+  }, false);
+  document.getElementById("sent-circle-add4-source").addEventListener('click',
+  function() {
+    linkButtonClick(add_links.five);
+  }, false);
+
   entity_name = data.company_name;
   main_sent = data.main_article_sentiment;
   add_sent = data.other_articles_sentiment;
