@@ -26,11 +26,11 @@ def getInfo(query):
     if numberOfArticles > 5:
         numberOfArticles = 5
     for x in range(numberOfArticles):
-        # source = newsSources.append(headlines['articles'][x]['source']['name'])
-        # if source == "Google News" or source == "Reuters":
-        #    print(source)
-        #    x -= 1
-        #    continue
+        source = headlines['articles'][x]['source']['name']
+        if source == "Google News" or source == "Reuters" or source == "Financial Times":
+            print(source)
+            # x -= 1
+            continue
         newsTitles.append(headlines['articles'][x]['title'])
         newsContent.append(headlines['articles'][x]['content'])
         newsSources.append(headlines['articles'][x]['source']['name'])
@@ -42,12 +42,11 @@ def getInfo(query):
         headlines_all = newsapi.get_everything(q=query, from_param=str(start_day), to=str(today), language='en',
                                                sort_by='relevancy')
         for x in range(5 - len(newsTitles)):
-            # source = newsSources.append(headlines_all['articles'][x]['source']['name'])
-            # if source == "Google News" or source == "Reuters":
-            #    print(source)
-            #    x -= 1
-            #    continue
-
+            source = headlines_all['articles'][x]['source']['name']
+            if source == "Google News" or source == "Reuters" or source == "Financial Times":
+                print(source)
+                # x -= 1
+                continue
             newsTitles.append(headlines_all['articles'][x]['title'])
             newsContent.append(headlines_all['articles'][x]['content'])
             newsSources.append(headlines_all['articles'][x]['source']['name'])

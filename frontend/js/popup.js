@@ -204,6 +204,8 @@ function displayGraph() {
         lineTension: 0,
         borderColor: "#008000",
         backgroundColor: "#F0FFF0",
+        pointBackgroundColor: "transparent",
+        pointBorderColor: "transparent",
         fill: true
       }
     ]
