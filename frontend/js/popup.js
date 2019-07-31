@@ -158,6 +158,7 @@ function displayReady(data) {
   add_summary = data.article_summary;
   add_links = data.other_articles_links;
   main_summary = data.main_summary;
+  sources = data.other_articles_sources;
   document.getElementById("entity-name").innerHTML = entity_name;
   document.getElementById("sent-circle-main").setAttribute("data-progress", main_sent);
   document.getElementById("sent-circle-add0").setAttribute("data-progress", add_sent.one);
@@ -170,11 +171,18 @@ function displayReady(data) {
   document.getElementById("sent-circle-add2-title").innerHTML = add_titles.three;
   document.getElementById("sent-circle-add3-title").innerHTML = add_titles.four;
   document.getElementById("sent-circle-add4-title").innerHTML = add_titles.five;
-  document.getElementById("sent-circle-add0-source").setAttribute("href", add_links.one)
-  document.getElementById("sent-circle-add1-source").setAttribute("href", add_links.two)
-  document.getElementById("sent-circle-add2-source").setAttribute("href", add_links.three)
-  document.getElementById("sent-circle-add3-source").setAttribute("href", add_links.four)
-  document.getElementById("sent-circle-add4-source").setAttribute("href", add_links.five)
+  document.getElementById("sent-circle-add0-source").setAttribute("href", add_links.one);
+  document.getElementById("sent-circle-add1-source").setAttribute("href", add_links.two);
+  document.getElementById("sent-circle-add2-source").setAttribute("href", add_links.three);
+  document.getElementById("sent-circle-add3-source").setAttribute("href", add_links.four);
+  document.getElementById("sent-circle-add4-source").setAttribute("href", add_links.five);
+
+  document.getElementById("sent-circle-add0-source").innerHTML = sources.one;
+  document.getElementById("sent-circle-add1-source").innerHTML = sources.two;
+  document.getElementById("sent-circle-add2-source").innerHTML = sources.three;
+  document.getElementById("sent-circle-add3-source").innerHTML = sources.four;
+  document.getElementById("sent-circle-add4-source").innerHTML = sources.five;
+
 }
 
 function displayGraph() {
