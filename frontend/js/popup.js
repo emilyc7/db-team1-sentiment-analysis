@@ -155,8 +155,6 @@ function displayReady(data) {
   main_sent = data.main_article_sentiment;
   add_sent = data.other_articles_sentiment;
   add_titles = data.other_articles_titles;
-  add_sources = data.other_articles_sources;
-  add_links = data.other_articles_links;
   add_summary = data.article_summary;
   main_summary = data.main_summary;
   document.getElementById("entity-name").innerHTML = entity_name;
@@ -171,16 +169,6 @@ function displayReady(data) {
   document.getElementById("sent-circle-add2-title").innerHTML = add_titles.three;
   document.getElementById("sent-circle-add3-title").innerHTML = add_titles.four;
   document.getElementById("sent-circle-add4-title").innerHTML = add_titles.five;
-  document.getElementById("sent-circle-add0-source").innerHTML = add_sources.one;
-  document.getElementById("sent-circle-add1-source").innerHTML = add_sources.two;
-  document.getElementById("sent-circle-add2-source").innerHTML = add_sources.three;
-  document.getElementById("sent-circle-add3-source").innerHTML = add_sources.four;
-  document.getElementById("sent-circle-add4-source").innerHTML = add_sources.five;
-  document.getElementById("sent-circle-add0-source").setAttribute("href", add_links.one)
-  document.getElementById("sent-circle-add1-source").setAttribute("href", add_links.two)
-  document.getElementById("sent-circle-add2-source").setAttribute("href", add_links.three)
-  document.getElementById("sent-circle-add3-source").setAttribute("href", add_links.four)
-  document.getElementById("sent-circle-add4-source").setAttribute("href", add_links.five)
 }
 
 function displayGraph() {
@@ -189,18 +177,68 @@ function displayGraph() {
 //  var price = [156.64,147.06,146.73,149.43,149.43,152.06,152.55];
   var dates = data.stock_dates;
   var price = data.stock_data;
-  console.log(price);
+  var comp = entity_name;
   var last = price[price.length - 1];
-  var before = price[price.length - 2];
+  var before = price[0];
+  var x = dates.length;
+  var i;
+  console.log(x);
+  var numbers = new Array();
+  for (i = 1; i <= x; i++) {
+    numbers.push(i);
+  }
+  console.log(numbers);
   // Builds Chart
   var ctx = document.getElementById("myChart");
+  var options = {
+         scales: {
+            xAxes: [{
+                afterTickToLabelConversion: function(data){
+
+
+                    var xLabels = data.ticks;
+                    console.log(xLabels);
+
+                    xLabels.forEach(function (labels, j) {
+ //                       xLabels[j] = '';
+                        if (j == 8 || j == 9 || j == 14 || j == 15){
+                            console.log(j);
+                            xLabels[j] = 'January ';
+                        }
+                        else if (j == 44 || j == 45 || j == 46 || j == 51) {
+                            xLabels[j] = "February";
+                        }
+                        else if (j == 70 || j == 71 || j == 72 || j == 73) {
+                            xLabels[j] = "March";
+                        }
+                        else if (j == 90 || j == 91 || j == 96 || j == 97) {
+                            xLabels[j] = "April";
+                        }
+                        else if (j == 115 || j == 116 || j == 117 || j ==118) {
+                            xLabels[j] = "May";
+                        }
+                        else if (j == 141 || j == 142 || j == 143 || j == 144) {
+                            xLabels[j] = "June";
+                        }
+                        else {
+                            xLabels[j] = '';
+                        }
+                    });
+                },
+
+               gridLines: {
+                display: false
+               }
+            }]
+        }
+}
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: dates,
       datasets: [ {
         data: price,
-        label: "Price(USD)",
+        label: comp,
         lineTension: 0,
         borderColor: "#008000",
         backgroundColor: "#F0FFF0",
@@ -209,7 +247,8 @@ function displayGraph() {
         fill: true
       }
     ]
-  }
+  },
+   options: options
 });
 // To determine color of graph based on EOD Data
 if (last < before) {
@@ -217,4 +256,6 @@ if (last < before) {
   myChart.data.datasets[0].backgroundColor = "#FFE4E1";
 }
 myChart.update();
+
 }
+
